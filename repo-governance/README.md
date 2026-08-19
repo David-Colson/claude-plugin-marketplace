@@ -93,6 +93,11 @@ repo-config region (survives re-sync) and a kit-code region stamped
 
 ## History
 
+- 0.6.1 — govern-repo's Re-sync path now ensures the cloud-marketplace
+  keys too. Rationale: 0.6.0 wired the keys into fresh adoptions only;
+  the owner's first planned use was a re-sync (Done-er — the repo the
+  cloud failure happened in), which would have missed them. Caught by the
+  owner's use question the same day.
 - 0.6.0 — `/map` skill + cloud-at-adoption. `/map`: read-only at-a-glance
   status tree (glyph statuses, YOU/me-tagged open items, recommended
   order, sequencing note; contradictions flagged, never repaired).
@@ -144,5 +149,5 @@ repo-config region (survives re-sync) and a kit-code region stamped
 
 ## Version
 
-0.6.0 — govern-repo + advance + scrutinize + map, hardened checks,
-cloud-ready adoptions.
+0.6.1 — govern-repo + advance + scrutinize + map, hardened checks,
+cloud-ready adoptions and re-syncs.

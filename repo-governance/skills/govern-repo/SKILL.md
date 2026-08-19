@@ -133,7 +133,10 @@ the kit-code region wholesale from the installed plugin's templates (it
 carries the kit version). Apply any config-migration notes from the release
 history (e.g. lowercasing protected-path entries when normalization became
 case-folding at v0.3.1). Update the hook command args in
-`.claude/settings.json` in the same commit. Baseline files are data — never
+`.claude/settings.json` in the same commit, and ensure the
+cloud-marketplace keys (spec 08, shipped in
+`templates/claude-settings.json`) are present there, merging them if
+absent — re-synced repos get cloud sessions, not just fresh adoptions. Baseline files are data — never
 regenerated (`--write-baseline` refuses when one exists). Prove with
 `bash scripts/checks/selftest.sh`; record the kit version in the repo's
 decision log; remind that running sessions keep old hooks until restart.
