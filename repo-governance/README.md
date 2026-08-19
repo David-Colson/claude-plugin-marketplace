@@ -93,6 +93,21 @@ repo-config region (survives re-sync) and a kit-code region stamped
 
 ## History
 
+- 0.8.0 — one train, two specs. Spec 11 (cbtdag adoptions + owner
+  doctrine): semantic-conventions section in the spec template + Phase B
+  extraction line (implicit conventions are per-builder coin flips);
+  `templates/HANDOFF_PROMPT.md` (the self-contained handoff shape,
+  reverse-engineered from five live instances including red-team fixes);
+  owner doctrine into templates/CLAUDE.md — task-DAG action queues not
+  calendar time, AI cognitive ergonomics over polish for absent readers,
+  sexpr over JSON where the format is ours to choose (platform formats
+  exempt). M4 (spec 12, friction-cut from the M3 field eval): six fixes
+  each traced to a recorded item — absent-tooling skip rule, lightest
+  approval facility, one-topic batched questions with option-cap
+  semantics, uniform-table plan-level approval, Windows exec-bit index
+  fix, and selftest T11 (leftover-placeholder check, proven
+  green/red-on-probe/green). DAG machinery from the cbtdag drop-in
+  declined (ADR-014).
 - 0.7.3 — /map ship flag (owner-requested): in a repo whose records name
   a delivery step, the map ends with `⇪ ship needed — <why>` when payload
   paths are dirty or carry commits newer than the last recorded version
@@ -178,5 +193,6 @@ repo-config region (survives re-sync) and a kit-code region stamped
 
 ## Version
 
-0.7.3 — govern-repo + advance + scrutinize + map, the governed-repo
-interface, hardened checks, cloud-ready adoptions and re-syncs.
+0.8.0 — govern-repo + advance + scrutinize + map, the governed-repo
+interface, owner doctrine, handoff template, hardened checks + T11,
+cloud-ready adoptions and re-syncs.

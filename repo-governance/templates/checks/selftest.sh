@@ -150,6 +150,16 @@ if [ -f .claude/settings.json ]; then
   done
 else skip "T10 settings dispatch" ".claude/settings.json absent"; fi
 
+# T11: no leftover template placeholder (a double-braced UPPERCASE token)
+# in instantiated mechanical files — scripts and settings are
+# sed-instantiated from templates; a survivor means the instantiation was
+# incomplete (M3 friction #7). Governance docs are OUT of scope: prose may
+# mention placeholders legitimately.
+plh='\{\{[A-Z][A-Z0-9_]*\}\}'
+hits="$(grep -lE "$plh" "$CHECKS"/*.sh .claude/settings.json 2>/dev/null || true)"
+if [ -n "$hits" ]; then bad "T11 no leftover template placeholders" "$hits"
+else ok "T11 no leftover template placeholders"; fi
+
 echo "----"
 echo "selftest: $PASS passed, $FAIL failed, $SKIP skipped."
 [ "$FAIL" -eq 0 ] && { echo "SELFTEST GREEN"; exit 0; }

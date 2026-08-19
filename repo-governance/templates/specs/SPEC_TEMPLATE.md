@@ -25,6 +25,17 @@
 
 - {{FACT}} — `{{path}}:{{line}}`
 
+## Semantic conventions
+
+<!-- Every domain interpretation a builder could read two ways: units,
+     signs, orientations, index bases, timezones, null-vs-empty, terms
+     of art. Implicit conventions become coin flips per builder —
+     components can each be internally valid and mutually incompatible
+     with every check passing. When none apply, write "none apply"
+     explicitly: stated absence is deliberate, omission is not. -->
+
+- {{CONVENTION — statement + what it applies to}}
+
 ## Done when
 
 {{OBSERVABLE_BEHAVIOR — what would be demoed, and how.}}

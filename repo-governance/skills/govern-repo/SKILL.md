@@ -30,6 +30,9 @@ brainstorm dump does not become an invariant without confirmation.
 - **Timebox.** If the session runs long, apply the approved plan in priority
   order — checks + `CLAUDE.md`, then doc reconciliation, then roadmap — and
   stop, recording what remains.
+- **A sovereign session-start protocol requiring unavailable tooling**
+  (MCP bridges, servers): note it, skip it, record the skip in the ADR —
+  governance sessions don't need the repo's runtime tooling.
 
 ## Phase A — Survey (read-only)
 
@@ -51,7 +54,10 @@ Scaled to what exists; skip what's absent.
 
 Assemble one governance plan. Every item arrives **drafted**, with its evidence
 or an explicit default — the only questions asked are the gaps the survey
-genuinely could not fill, one at a time, each with a proposed default.
+genuinely could not fill: one TOPIC per question, batched into a single
+dialog where the facility supports it, each with a proposed default.
+Option lists exceeding the facility's cap get explicit include/exclude
+semantics rather than an implicit remainder.
 
 **Selection filter:** draft an item only where incidents already cluster or
 where it protects the repo's ability to absorb the next feature — never a
@@ -68,7 +74,9 @@ priori. Governance that gets in the way of development is a defect.
    commit after adoption doesn't trip the ratchet. Confirm or edit."
 5. **Reconciliation table** (existing docs and the dropped artifacts) — every
    file → keep / fold into X / move to `docs/intake/` / supersede / delete.
-   One recommendation per row; the human decides each. Dropped notes get a row:
+   One recommendation per row; the human decides each row — one
+   plan-level approval may stand in when the recommendation column is
+   uniform (e.g. all-keep). Dropped notes get a row:
    once absorbed, they must not linger as a second source of truth.
    When kept-sovereign files serve kit concepts, the plan must also name
    the **governed-repo interface** — the local home of each of four
@@ -86,10 +94,14 @@ priori. Governance that gets in the way of development is a defect.
    cloud-marketplace keys (`extraKnownMarketplaces` + `enabledPlugins`,
    spec 08) so cloud sessions opened in this repo load the plugin; the
    owner may strike it.
+9. **Semantic conventions** — declared interpretations found in artifacts
+   and code (units, signs, index bases, terms of art) drafted for
+   confirmation; ambiguities become questions, never silent guesses.
 
-Present it as a plan for approval: if a plan-mode/approval facility is
-available in the environment, use it for the gate; otherwise present the plan
-in-conversation and wait for explicit approval. Where genuine forks exist,
+Present it as a plan for approval, using the LIGHTEST approval facility
+available — when the survey has already produced the plan, in-conversation
+approval suffices; never author the plan twice for a heavier facility's
+sake. Where genuine forks exist,
 offer 2–3 options with trade-offs and a recommendation. **STOP until approved.**
 If approval is declined, the plan itself is the deliverable — write nothing.
 
@@ -102,7 +114,9 @@ If approval is declined, the plan itself is the deliverable — write nothing.
    Execute every reconciliation disposition exactly as approved.
 2. Install `scripts/checks/` with the approved config (config region above
    the marker; kit code below it verbatim, stamped with the installed plugin
-   version); `chmod +x`. Run `check-file-length.sh --write-baseline` when
+   version); `chmod +x` — and on Windows (`core.filemode=false`) also
+   `git update-index --chmod=+x` in the same commit, or the exec bit
+   never reaches the index. Run `check-file-length.sh --write-baseline` when
    legacy code exists; for each approved seam file, tag its baseline row
    (third column `seam`) and raise its ceiling to `int(current * 1.1 + 0.5)`
    — an adoption-time hand edit; afterwards the baseline moves only via
@@ -129,7 +143,8 @@ If approval is declined, the plan itself is the deliverable — write nothing.
    references the ADR.
 6. Handoff: the "Now" block names a real capability milestone; list what was
    created, absorbed, superseded, and deliberately not migrated; one next
-   action — "open a build session against `specs/01-....md`".
+   action — "open a build session against `specs/01-....md`". Work handed
+   to another session uses the shape in `templates/HANDOFF_PROMPT.md`.
 
 **The governance session produces no feature code.** Building M1 is the next
 session.

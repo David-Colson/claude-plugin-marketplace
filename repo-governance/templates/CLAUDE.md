@@ -30,6 +30,17 @@
 - Definition of done always includes: `scripts/checks/` pass and the full test
   suite is green.
 - On completion of a milestone, append the Result section to its spec.
+- Plans are dependency-ordered action queues (task-DAG shape), never
+  calendar time. Effort is stated in relative size or token/cost units,
+  not hours or days.
+- Code optimizes for AI cognitive ergonomics — its primary reader is an
+  agent. Polish serving human readers who will never exist is declined;
+  owner-facing records (roadmap, spec gates, status views) still serve
+  the owner.
+- Prefer s-expressions over JSON wherever the format is ours to choose.
+  Platform-mandated formats (`.claude/settings.json`, plugin/package
+  manifests, tool-required schemas) are exempt — never sexpr-ify a file
+  the platform parses as JSON.
 
 ## Loading order
 

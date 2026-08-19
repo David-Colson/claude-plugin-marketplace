@@ -78,7 +78,8 @@ repo's gates, read the named artifacts, cite `file:line`. Reach a verdict:
   take (funding, credentials, an external account or third-party
   dependency): do not attempt or retry it. Record the blocker and the
   exact unblock action where the repo's status lives (Now block, STATE,
-  or equivalent), and deliver it as the gate.
+  or equivalent), and deliver it as the gate — cross-session or off-repo
+  unblock actions use the shape in `templates/HANDOFF_PROMPT.md`.
 - **Complete but unclosed** → run the close ritual: append the Result
   section (or the repo's close-out equivalent) from evidence gathered
   THIS run — verbatim numbers and hashes; re-run reproducible checks
