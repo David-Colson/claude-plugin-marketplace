@@ -93,6 +93,12 @@ repo-config region (survives re-sync) and a kit-code region stamped
 
 ## History
 
+- 0.7.1 — /advance step 1 names the behind-origin/diverged-branch gate
+  (owner decides syncing; never pull unprompted). Rationale: the
+  2026-08-19 Done-er live test hit the state and had to extrapolate;
+  adopted via the first /scrutinize run (docs/scrutiny-2026-08-19).
+  Verification: the live run itself exercised the state; the sentence
+  codifies its correct handling.
 - 0.7.0 — the governed-repo interface (spec 07, convergence approach B).
   Four functions stated by one name in govern-repo (authoring side),
   /advance and /map (consuming side), with a required mapping-table stub
@@ -158,5 +164,5 @@ repo-config region (survives re-sync) and a kit-code region stamped
 
 ## Version
 
-0.7.0 — govern-repo + advance + scrutinize + map, the governed-repo
+0.7.1 — govern-repo + advance + scrutinize + map, the governed-repo
 interface, hardened checks, cloud-ready adoptions and re-syncs.

@@ -44,7 +44,10 @@ mechanizes the owner's decisions.
 (steps 1–2) may proceed over a dirty tree, but no write branch — close
 ritual, spec drafting, build — starts until the human decides
 commit/stash; running unattended, report the dirty tree as the gate and
-stop before any write.
+stop before any write. A branch behind or diverged from its upstream is
+the same gate: verify against the local tree and say what upstream holds,
+but syncing (`git pull`, fast-forward or otherwise) is the owner's
+decision — deliver it, never pull unprompted.
 
 Load the repo's operating rules (`CLAUDE.md`/`AGENTS.md`), the roadmap
 "Now" block or equivalent, and the active spec/round doc. **If the repo
