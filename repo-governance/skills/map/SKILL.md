@@ -104,6 +104,17 @@ No prose that restates the tree. No history narration. If the map
 surfaced `⚠` lines, end by naming /advance (to verify and fix forward) as
 the follow-up — never fix in /map.
 
+**Ship flag** — only in a repo whose own records name a delivery step
+(e.g. this kit's dev repo: /ship, ADR-011). After the prose, end with one
+line — `⇪ ship needed — <why, one clause>` — when the delivery payload is
+stale as derivable from the repo's records and git ALONE: payload paths
+(as the delivery step's own docs define them) are dirty, or carry commits
+newer than the last commit that changed the recorded version. Clean, or
+no delivery step recorded → no line at all. The flag is a recorded-state
+inference, not a verification: /ship itself is the check, and delivery
+targets outside the repo root (installed copies, remote marketplaces) are
+never read to confirm.
+
 ## Refusals
 
 - Running checks, selftest, or gates "just to be sure" → never; that is

@@ -93,6 +93,12 @@ repo-config region (survives re-sync) and a kit-code region stamped
 
 ## History
 
+- 0.7.3 — /map ship flag (owner-requested): in a repo whose records name
+  a delivery step, the map ends with `⇪ ship needed — <why>` when payload
+  paths are dirty or carry commits newer than the last recorded version
+  change — derived from records and git alone, never by reading delivery
+  targets outside the repo root. Verification: both states demonstrated
+  live (flag fired pre-ship on the dirty payload; clean map post-ship).
 - 0.7.2 — /map hardened after its adversarial review (the pass spec 09's
   Result had queued): four confirmed wording gaps closed — named-but-
   absent mapped homes flag ⚠ like unnamed ones; the header's version
@@ -172,5 +178,5 @@ repo-config region (survives re-sync) and a kit-code region stamped
 
 ## Version
 
-0.7.2 — govern-repo + advance + scrutinize + map, the governed-repo
+0.7.3 — govern-repo + advance + scrutinize + map, the governed-repo
 interface, hardened checks, cloud-ready adoptions and re-syncs.
