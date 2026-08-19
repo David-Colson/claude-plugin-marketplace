@@ -76,6 +76,10 @@ priori. Governance that gets in the way of development is a defect.
    non-goals with until-when; `LATER.md` candidates.
 7. **ADR seeds** — decisions stated in artifacts or evident in code but never
    recorded.
+8. **Cloud plugin access** — drafted default: install the kit's
+   cloud-marketplace keys (`extraKnownMarketplaces` + `enabledPlugins`,
+   spec 08) so cloud sessions opened in this repo load the plugin; the
+   owner may strike it.
 
 Present it as a plan for approval: if a plan-mode/approval facility is
 available in the environment, use it for the gate; otherwise present the plan
@@ -96,8 +100,9 @@ If approval is declined, the plan itself is the deliverable — write nothing.
    legacy code exists; for each approved seam file, tag its baseline row
    (third column `seam`) and raise its ceiling to `int(current * 1.1 + 0.5)`
    — an adoption-time hand edit; afterwards the baseline moves only via
-   `--tighten`. Merge the hooks config into `.claude/settings.json` (commands
-   pass `--hook`), preserving every existing entry. Append-merge into
+   `--tighten`. Merge the hooks config — and, per the approved Phase B
+   disposition, the cloud-marketplace keys — into `.claude/settings.json`
+   (commands pass `--hook`), preserving every existing entry. Append-merge into
    `.gitattributes` (autocrlf corrupts the scripts and the tab-keyed
    baseline on a fresh checkout):
    `scripts/checks/*.sh text eol=lf` and

@@ -30,10 +30,17 @@ is attentive).
   is tiered by the repo's own selection filter (adopt / park / decline-
   recorded), and the parking lot is the only landing zone — never specs or
   code. For roadmap authoring, next-milestone choice, and one-way doors.
+- **`skills/map`** — the at-a-glance status tree, read-only: closed
+  milestones collapsed, the active one marked, open action items tabbed
+  under what they block and tagged owner-vs-agent, pending specs in
+  recommended order, sequencing note. Maps recorded state only — never
+  verifies, writes, or advances; contradictions between records render as
+  flagged lines. One repo per map, by rule.
 - **`templates/`** — the kit itself: `CLAUDE.md` (posture + invariants + working
   rules), `ROADMAP.md` (capability milestones, non-goals with until-when),
   `DECISIONS.md`, `LATER.md`, a spec template, three check scripts, and a
-  `.claude/settings.json` hooks config.
+  `.claude/settings.json` config (hooks + cloud-marketplace keys so cloud
+  sessions in governed repos load this plugin).
 
 The plugin is the shipping container; **the repo files are the product.**
 Invariants must be in context every session, so they live in the target repo's
@@ -86,6 +93,17 @@ repo-config region (survives re-sync) and a kit-code region stamped
 
 ## History
 
+- 0.6.0 — `/map` skill + cloud-at-adoption. `/map`: read-only at-a-glance
+  status tree (glyph statuses, YOU/me-tagged open items, recommended
+  order, sequencing note; contradictions flagged, never repaired).
+  Rationale: prose status reports failed at multi-repo scale (owner
+  running three repos, 2026-08-18); the view was produced manually once
+  and immediately requested as a skill. Also spec 08's owner amendment:
+  `templates/claude-settings.json` now carries the cloud-marketplace keys
+  and govern-repo installs them as a Phase B default disposition, so
+  freshly governed repos work in cloud sessions. (Delivery side, spec 08:
+  /ship pushes the payload to the private claude-plugin-marketplace repo —
+  dev-repo tooling, no payload change.)
 - 0.5.1 — `/advance` hardened after its first live run + adversarial
   review. Rationale: three confirmed holes — undefined "current milestone"
   deadlocked on a seeded-but-unspecced roadmap state; spec authoring could
@@ -126,4 +144,5 @@ repo-config region (survives re-sync) and a kit-code region stamped
 
 ## Version
 
-0.5.1 — govern-repo + advance + scrutinize, hardened checks.
+0.6.0 — govern-repo + advance + scrutinize + map, hardened checks,
+cloud-ready adoptions.

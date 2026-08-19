@@ -24,5 +24,16 @@
         ]
       }
     ]
+  },
+  "extraKnownMarketplaces": {
+    "claude-plugin-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "David-Colson/claude-plugin-marketplace"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "repo-governance@claude-plugin-marketplace": true
   }
 }
