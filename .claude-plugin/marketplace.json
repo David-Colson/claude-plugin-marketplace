@@ -1,0 +1,13 @@
+{
+  "name": "claude-plugin-marketplace",
+  "version": "1.0.0",
+  "description": "David's plugin marketplace — payload pushed by repo-governance /ship",
+  "owner": { "name": "David Colson" },
+  "plugins": [
+    {
+      "name": "repo-governance",
+      "version": "0.5.1",
+      "source": "./repo-governance"
+    }
+  ]
+}

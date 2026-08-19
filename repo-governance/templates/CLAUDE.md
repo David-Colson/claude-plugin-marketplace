@@ -1,0 +1,38 @@
+# {{PROJECT_NAME}} — Agent Operating Rules
+
+## Posture
+
+{{POSTURE_STATEMENT}}
+<!-- Example: "This is a v0 prototype: single user, localhost, throwaway data.
+     Auth, rate limiting, input hardening, and multi-tenancy are explicitly out
+     of scope until v1." Build for THIS reality, not the most demanding one. -->
+
+## Invariants
+
+- No file over {{MAX_FILE_LINES}} lines. If a change would exceed the limit,
+  split first, then make the change.
+- Each module has one reason to change, stated in a comment at the top.
+- Layer direction: {{LAYER_DIRECTION}}. Never the reverse.
+- New dependencies require asking first.
+- Never write under {{PROTECTED_PATHS}}. Original data is read-only reference
+  material: derive from it, never overwrite it. (Hook-enforced.)
+
+## Working rules
+
+- No spec, no code. Build only against the active spec in `specs/`.
+- Before any milestone with real design content: propose 2–3 approaches with
+  trade-offs and a recommendation. **No code until one is chosen.**
+- Escalation: if completing the milestone appears to require violating an
+  invariant or doing work on the non-goals list, **stop and write a proposal
+  instead of code.**
+- Anything encountered mid-build that isn't in the spec goes to `LATER.md`,
+  not into code.
+- Definition of done always includes: `scripts/checks/` pass and the full test
+  suite is green.
+- On completion of a milestone, append the Result section to its spec.
+
+## Loading order
+
+1. This file
+2. `ROADMAP.md` — the "Now" block
+3. The active spec in `specs/`
