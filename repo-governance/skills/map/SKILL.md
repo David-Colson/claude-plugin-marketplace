@@ -38,20 +38,24 @@ technical summaries is starting to make my head spin").
 
 `git status --short` and HEAD short-hash for the header. Load the repo's
 operating rules (`CLAUDE.md`/`AGENTS.md`), roadmap "Now" block or
-equivalent, specs/round docs, LATER/backlog. **Keep-sovereign repos:** the
-adoption ADR's concept mapping names the local home of each governed-repo
-interface function — current-milestone pointer, gated spec pipeline,
-close-out record, amendment log — read those, exactly as /advance would;
-an unnamed function is itself a `⚠` line, not a guess.
+equivalent, specs/round docs, LATER/backlog, and the kit/plugin version
+where one is recorded; none recorded → omit that header segment.
+**Keep-sovereign repos:** the adoption ADR's concept mapping names the
+local home of each governed-repo interface function — current-milestone
+pointer, gated spec pipeline, close-out record, amendment log — read
+those, exactly as /advance would; an unnamed function — or a named home
+that is absent on disk — is itself a `⚠` line, not a guess.
 
 ### 2. Classify every milestone and side spec
 
 From records alone:
 
-- `✅` **closed** — close-out record present AND logged AND the pointer
-  has moved on (all three; /advance's definition).
+- `✅` **closed** — close-out record present AND the amendment logged AND
+  the pointer has moved on (all three; /advance's definition).
 - `●` **active** — the current milestone: owner's go recorded and build
   begun, or the "Now" block's milestone awaiting its named prerequisite.
+  A side spec in recorded build renders ● too — more than one ● is
+  parallel work, not a contradiction.
 - `◐` **built/unclosed** — work recorded complete but a done-when or
   close-ritual item is explicitly open (e.g. a Result marked pending).
 - `○` **drafted/seeded** — spec or roadmap entry exists, no recorded go.

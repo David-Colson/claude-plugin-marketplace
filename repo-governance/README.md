@@ -93,6 +93,14 @@ repo-config region (survives re-sync) and a kit-code region stamped
 
 ## History
 
+- 0.7.2 — /map hardened after its adversarial review (the pass spec 09's
+  Result had queued): four confirmed wording gaps closed — named-but-
+  absent mapped homes flag ⚠ like unnamed ones; the header's version
+  segment gets a source and an omit-when-unrecorded fallback; a side
+  spec in recorded build legally renders a second ●; ✅'s "logged" names
+  its object (the amendment). Review: 3 adversarial lenses, 22 findings,
+  each independently verified — 4 confirmed, 18 refuted (all four
+  MUST_FIX claims among them).
 - 0.7.1 — /advance step 1 names the behind-origin/diverged-branch gate
   (owner decides syncing; never pull unprompted). Rationale: the
   2026-08-19 Done-er live test hit the state and had to extrapolate;
@@ -164,5 +172,5 @@ repo-config region (survives re-sync) and a kit-code region stamped
 
 ## Version
 
-0.7.1 — govern-repo + advance + scrutinize + map, the governed-repo
+0.7.2 — govern-repo + advance + scrutinize + map, the governed-repo
 interface, hardened checks, cloud-ready adoptions and re-syncs.
