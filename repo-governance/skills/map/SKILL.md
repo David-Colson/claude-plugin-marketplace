@@ -39,10 +39,10 @@ technical summaries is starting to make my head spin").
 `git status --short` and HEAD short-hash for the header. Load the repo's
 operating rules (`CLAUDE.md`/`AGENTS.md`), roadmap "Now" block or
 equivalent, specs/round docs, LATER/backlog. **Keep-sovereign repos:** the
-adoption ADR's concept mapping names the local homes of the
-current-milestone pointer, spec pipeline, close-out record, and amendment
-log — read those, exactly as /advance would; an unnamed equivalent is
-itself a `⚠` line, not a guess.
+adoption ADR's concept mapping names the local home of each governed-repo
+interface function — current-milestone pointer, gated spec pipeline,
+close-out record, amendment log — read those, exactly as /advance would;
+an unnamed function is itself a `⚠` line, not a guess.
 
 ### 2. Classify every milestone and side spec
 

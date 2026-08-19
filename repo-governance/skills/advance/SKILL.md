@@ -28,10 +28,13 @@ mechanizes the owner's decisions.
   evidence is a gap to report, not to paper over.
 - **Respect the repo's own system.** Kit-style (ROADMAP "Now" + `specs/`)
   or its documented equivalent. In a keep-sovereign repo, the adoption
-  ADR's concept-mapping or divergence doc names the local equivalents of
-  the roadmap, Result section, amendment log, and spec pipeline — that
-  mapping is authoritative: write into those, never into kit-named files
-  it says are served elsewhere.
+  ADR's concept-mapping or divergence doc names the local home of each of
+  the governed-repo interface's four functions —
+  **current-milestone pointer, gated spec pipeline, close-out record,
+  amendment log** — and that mapping is authoritative: write into those,
+  never into kit-named files it says are served elsewhere. An unnamed
+  function is a gap to deliver as a gate (ask the owner to name it),
+  never to guess around.
 
 ## Procedure
 

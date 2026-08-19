@@ -70,6 +70,12 @@ priori. Governance that gets in the way of development is a defect.
    file → keep / fold into X / move to `docs/intake/` / supersede / delete.
    One recommendation per row; the human decides each. Dropped notes get a row:
    once absorbed, they must not linger as a second source of truth.
+   When kept-sovereign files serve kit concepts, the plan must also name
+   the **governed-repo interface** — the local home of each of four
+   functions: **current-milestone pointer, gated spec pipeline, close-out
+   record, amendment log**. Leaving one unnamed is an adoption defect:
+   Phase C may not close with a row missing (tools like /advance stop at
+   exactly that hole).
 6. **Roadmap** — "Now" block from actual current state; M1 as a **walking
    skeleton** for new builds, or a capability recut of existing plans (flag
    component-shaped milestones); an M0.5 spike if a risky assumption surfaced;
@@ -117,6 +123,8 @@ If approval is declined, the plan itself is the deliverable — write nothing.
 4. Write ADR-001 (or ADR-00N for an existing decision log): posture, protected
    paths, invariant config, baselines and targets, test baseline, every
    disposition executed, and the artifact provenance of each decision.
+   Keep-sovereign adoptions include the four-row interface mapping from
+   Phase B (stub in `templates/DECISIONS.md`) — complete, no row unnamed.
 5. Commit governance changes isolated from any pre-existing work; message
    references the ADR.
 6. Handoff: the "Now" block names a real capability milestone; list what was

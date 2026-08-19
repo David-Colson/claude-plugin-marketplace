@@ -16,6 +16,15 @@
 
 - `{{symbol_or_column}}` — `{{path}}:{{line}}` — {{what it promises}}
 
+## Current state *(verified at HEAD `{{HASH}}`, {{DATE}})*
+
+<!-- The divergence inventory this spec builds from: what exists NOW,
+     open-file verified, file:line. Not the mission restated — the ground
+     truth that makes mid-build surprises spec defects instead of
+     landmines. Re-verify if the tree moves under the spec. -->
+
+- {{FACT}} — `{{path}}:{{line}}`
+
 ## Done when
 
 {{OBSERVABLE_BEHAVIOR — what would be demoed, and how.}}
@@ -39,6 +48,8 @@
 ## Result *(appended on completion — this is the archive; no file moves)*
 
 - **Decisions / deviations:**
+- **As built — deltas from this plan:** <!-- each delta with measured
+  evidence; "none" is a claim to earn, not a default -->
 - **Contracts exported:** (signature — `path:line`)
 - **Evidence:** (test output, demo notes)
 - **Parked to LATER.md:**

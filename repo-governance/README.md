@@ -93,6 +93,15 @@ repo-config region (survives re-sync) and a kit-code region stamped
 
 ## History
 
+- 0.7.0 — the governed-repo interface (spec 07, convergence approach B).
+  Four functions stated by one name in govern-repo (authoring side),
+  /advance and /map (consuming side), with a required mapping-table stub
+  in the DECISIONS template: current-milestone pointer, gated spec
+  pipeline, close-out record, amendment log; a keep-sovereign mapping
+  leaving one unnamed is an adoption defect. Spec template back-ports
+  Done-er's stronger practices (Current-state-at-HEAD section, as-built
+  deltas in Result). Named failure: /advance could not run in Done-er —
+  its ADR-001 mapping lacks two of the four rows.
 - 0.6.1 — govern-repo's Re-sync path now ensures the cloud-marketplace
   keys too. Rationale: 0.6.0 wired the keys into fresh adoptions only;
   the owner's first planned use was a re-sync (Done-er — the repo the
@@ -149,5 +158,5 @@ repo-config region (survives re-sync) and a kit-code region stamped
 
 ## Version
 
-0.6.1 — govern-repo + advance + scrutinize + map, hardened checks,
-cloud-ready adoptions and re-syncs.
+0.7.0 — govern-repo + advance + scrutinize + map, the governed-repo
+interface, hardened checks, cloud-ready adoptions and re-syncs.
