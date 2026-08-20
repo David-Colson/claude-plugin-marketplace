@@ -12,7 +12,10 @@
 
 <!-- Milestones are demonstrable capabilities, never components.
      "User can X and see Y" — not "finish the API layer".
-     Each is sized to one coherent work session. -->
+     Each is sized to one coherent work session.
+     Closed milestones rotate to the roadmap archive at the next /recut,
+     leaving a one-line pointer (name · close date · ≤1 outcome clause ·
+     spec Result ref) — the spec Result stays the authoritative record. -->
 
 ### M0.5 — Spike: {{RISKIEST_ASSUMPTION}}  *(include only if the risk is real)*
 
@@ -45,4 +48,7 @@ anything.
 ## Amendment log
 
 Versioned by git. A one-line entry here per re-plan, at milestone boundaries
-only: date, what changed, why.
+only: date, what changed, why. Entries may rotate at milestone boundaries
+to `docs/roadmap-archive.md` (verbatim moves by /recut, never edits) —
+when they do, a pointer line here names the archive; the live log and
+the archive are one append-only stream.

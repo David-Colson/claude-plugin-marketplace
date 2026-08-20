@@ -84,16 +84,22 @@ repo's gates, read the named artifacts, cite `file:line`. Reach a verdict:
   section (or the repo's close-out equivalent) from evidence gathered
   THIS run — verbatim numbers and hashes; re-run reproducible checks
   after the ritual writes so the evidence describes the tree being
-  committed; irreproducible items cite their recorded artifact. Add the
+  committed; irreproducible items cite their recorded artifact.
+  **A spec never closes holding OPEN items:** every obligation left open
+  in its Result or Not-in sections gets a parking-lot row (a pointer,
+  never a restatement) or a recorded decline before the ritual's commit.
+  A near-cap roadmap (≥85% of the repo's line cap) is reported in the
+  ritual's output — never rotated here; rotation is /recut's. Add the
   amendment-log entry, advance the "Now" block (or the mapped
   equivalents). Commit the ritual writes — and only them; pre-existing
   uncommitted work never rides along — where the repo's conventions
   permit unprompted commits; where the repo gates commits, leave the
   writes in the tree and name the commit as the owner's next action.
   Never push. Then proceed to step 3.
-- **Closed** (Result present, amendment logged, "Now" advanced — all
-  three; anything partial is complete-but-unclosed: finish the ritual)
-  → proceed to step 3.
+- **Closed** (Result present, amendment logged — in the live log or the
+  archive its header names — and "Now" advanced; all three; anything
+  partial is complete-but-unclosed: finish the ritual) → proceed to
+  step 3.
 
 ### 3. Initiate the next milestone
 
@@ -109,14 +115,18 @@ repo's gates, read the named artifacts, cite `file:line`. Reach a verdict:
   the roadmap entry plus `LATER.md`/backlog candidates, per the repo's
   spec conventions, then **STOP for the owner's go on the spec** —
   authoring is never a license to build.
-- **No next milestone defined** → propose 1–3 candidates from the repo's
-  own goals, parked items, and recorded friction, each with its local
-  evidence tag (incident / observed-need / none — /scrutinize's tags) so
-  the promotion bar is auditable, and **STOP for the owner's pick.** The
-  pick selects the milestone only; seeding the roadmap and authoring its
-  spec then proceed under this step's own gates. You may OFFER
-  /scrutinize at this boundary; never run it — nor an inline
-  best-practices survey — without the owner's explicit acceptance.
+- **No next milestone defined** → propose 1–3 candidates from the
+  repo's own goals, recorded friction, and **the backlog census** —
+  parked rows, decision-log revisit triggers and recorded declines, and
+  open obligations in close-out records (the same census /map renders) —
+  each with its local evidence tag (incident / observed-need / none —
+  /scrutinize's tags) so the promotion bar is auditable, and **STOP for
+  the owner's pick.** The pick selects the milestone only; seeding the
+  roadmap and authoring its spec then proceed under this step's own
+  gates. This boundary pick is the ONE route-entry path besides /recut
+  (the map is free; the route is gated). You may OFFER /scrutinize or
+  /recut at this boundary; never run either — nor an inline survey —
+  without the owner's explicit acceptance.
 
 ### 4. Report
 

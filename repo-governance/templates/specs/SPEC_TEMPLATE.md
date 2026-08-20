@@ -58,6 +58,11 @@
 
 ## Result *(appended on completion — this is the archive; no file moves)*
 
+<!-- A spec never closes holding OPEN items: every obligation left open
+     in this Result or the Not-in section gets a parking-lot row (a
+     pointer, never a restatement) or a recorded decline before the
+     close ritual's commit. -->
+
 - **Decisions / deviations:**
 - **As built — deltas from this plan:** <!-- each delta with measured
   evidence; "none" is a claim to earn, not a default -->

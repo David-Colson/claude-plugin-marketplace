@@ -35,6 +35,10 @@ riskiest assumption: {{RISK}} (addressed by {{SPIKE_OR_NA}}); protected paths:
 | close-out record | {{LOCAL_HOME}} |
 | amendment log | {{LOCAL_HOME}} |
 
+<!-- The amendment-log home may rotate entries at milestone boundaries
+     to a named archive its header points to (verbatim moves by /recut) —
+     the live log and the archive are one append-only stream. -->
+
 ---
 
 ## ADR-NNN — {{TITLE}} ({{DATE}})

@@ -30,12 +30,20 @@ is attentive).
   is tiered by the repo's own selection filter (adopt / park / decline-
   recorded), and the parking lot is the only landing zone — never specs or
   code. For roadmap authoring, next-milestone choice, and one-way doors.
-- **`skills/map`** — the at-a-glance status tree, read-only: closed
-  milestones collapsed, the active one marked, open action items tabbed
-  under what they block and tagged owner-vs-agent, pending specs in
-  recommended order, sequencing note. Maps recorded state only — never
-  verifies, writes, or advances; contradictions between records render as
-  flagged lines. One repo per map, by rule.
+- **`skills/route`** — the roadmap as the owner's dependency-ordered
+  action queue, read-only: active milestone, open nodes, every owner
+  action in sequence with what it unlocks, open repairs, ship and
+  near-cap flags. Renders recorded state only; contradictions flag,
+  never repair. One repo per route, by rule.
+- **`skills/map`** — the territory beyond the route, read-only: the
+  backlog census (parking-lot rows, decision-log revisit triggers,
+  obligations recorded in closed specs — single-homed ones flagged),
+  non-goals, recorded declines, archive pointer. The map is free; the
+  route is gated.
+- **`skills/recut`** — the route's only rebuilder, owner-gated: one
+  plan (backlog → milestones, unstarted-milestone adjustments, verbatim
+  rotation of closed history to the roadmap archive), then apply only
+  on approval. In-flight milestones untouchable; archives append-only.
 - **`templates/`** — the kit itself: `CLAUDE.md` (posture + invariants + working
   rules), `ROADMAP.md` (capability milestones, non-goals with until-when),
   `DECISIONS.md`, `LATER.md`, a spec template, three check scripts, and a
@@ -93,6 +101,19 @@ repo-config region (survives re-sync) and a kit-code region stamped
 
 ## History
 
+- 0.9.0 — the navigation suite (spec 13, owner-approved plan). /map
+  becomes /route (the roadmap as the owner's dependency-ordered action
+  queue, + near-cap flag); a new broadened /map renders the territory
+  (backlog census across parking lot + ADR revisit triggers +
+  spec-embedded obligations, non-goals, declines, archive pointer); new
+  /recut is the route's only rebuilder (owner-gated plan → verbatim
+  rotation to docs/roadmap-archive.md, backlog→milestones, map hygiene).
+  Doctrine encoded: the map is free, the route is gated; repair lane for
+  defects. /advance close ritual gains export-on-close (a spec never
+  closes holding OPEN items) and census-fed boundary candidates. `md`
+  joined this repo's length-check config (governance records now under
+  the mechanical 300 cap). Census evidence: 80%-history roadmap,
+  two-thirds single-homed backlog, Done-er's 4-6-file "what next".
 - 0.8.0 — one train, two specs. Spec 11 (cbtdag adoptions + owner
   doctrine): semantic-conventions section in the spec template + Phase B
   extraction line (implicit conventions are per-builder coin flips);
@@ -193,6 +214,6 @@ repo-config region (survives re-sync) and a kit-code region stamped
 
 ## Version
 
-0.8.0 — govern-repo + advance + scrutinize + map, the governed-repo
-interface, owner doctrine, handoff template, hardened checks + T11,
-cloud-ready adoptions and re-syncs.
+0.9.0 — govern-repo + advance + scrutinize + route + map + recut, the
+governed-repo interface, owner doctrine, handoff template, hardened
+checks + T11, cloud-ready adoptions and re-syncs.

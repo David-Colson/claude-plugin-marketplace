@@ -1,128 +1,102 @@
 ---
 name: map
-description: Render an at-a-glance status tree of THIS repo's roadmap — closed milestones collapsed, the active one marked, open action items tabbed under what they block and tagged owner-vs-agent, pending specs in recommended order, plus a sequencing note. Read-only always; it maps recorded state and never verifies, writes, or advances. Use when the user says "map", "map this repo", "status", "at a glance", "show me the plan", "where is this repo at". If they want done-conditions verified or the plan pushed forward, that is /advance, not /map — offer it instead.
+description: Render THIS repo's territory — everything beyond the current route: the backlog census (parked rows, decision-log revisit triggers, obligations recorded in closed specs), what's decidedly out of scope (non-goals, recorded declines), and where the archived history lives. Read-only always. Use when the user says "map", "the bigger picture", "what's in the backlog", "what's parked", "what's out of scope". For the current plan in sequence that is /route; to rebuild the route from this territory, /recut.
 ---
 
 # Map
 
-One read-only view that answers "where is this repo, and what's waiting on
-whom?" without triggering the transition ritual. /advance verifies and
-moves; **/map only looks.** Built because prose status summaries fail at
-multi-repo scale (owner, 2026-08-18: three repos in flight, "skimming
-technical summaries is starting to make my head spin").
+The territory view. /route shows the road the repo is on; **/map shows
+everything else** — what's waiting in the backlog, what was deliberately
+ruled out, and where the past is filed. Read-only, records-not-memory.
+Doctrine: **the map is free; the route is gated** — anything can land
+here at any time without ceremony; nothing here enters the route except
+through /recut or an /advance boundary pick.
 
 ## Hard rules
 
-- **Read-only, no exceptions.** No writes, no commits, no check/gate runs,
-  no Result authoring, no fixing of stale records. The only outputs are
-  the tree and a few lines of prose.
-- **This repo only.** Map the repo the session is in (its root). Never
-  scan sibling directories, never aggregate other repos — even if their
-  paths appear in the records being read.
-- **Trust the records, and say so.** Status comes from artifacts on disk,
-  never from session memory. The map renders what is *recorded*; whether
-  reality matches is /advance's evidence problem, and the tree's header
-  carries "as recorded" for that reason.
-- **Flag contradictions, never repair them.** Where records disagree —
-  the "Now" block names a milestone whose spec Result records closure, an
-  amendment log entry contradicts a status stamp — render a `⚠` line
-  under the affected node quoting both sources (`file:line`). Do not
-  guess which side is right.
+- **Read-only, no exceptions.** No writes, no check runs, no exports,
+  no repairs of stale records. Output is the census and a few lines of
+  prose.
+- **This repo only.** Never scan sibling directories or aggregate other
+  repos, even when this repo's records name them.
+- **Trust the records, and say so.** Status comes from artifacts on
+  disk; the header carries "as recorded".
+- **Single sources render once.** ADR revisit triggers render from the
+  decision log ONLY (a LATER row may cite an ADR, never restate its
+  trigger); approved-unbuilt specs render from `specs/` directly and get
+  no backlog row. Where two records restate one fact and disagree,
+  render a `⚠` line quoting both (`file:line`) — never repair.
 - **Ungoverned repo → refuse to invent.** No operating rules and no
-  roadmap or documented equivalent means there is no plan to map: report
-  what's missing, offer /govern-repo, and stop. Scaffold nothing.
+  roadmap or documented equivalent: report what's missing, offer
+  /govern-repo, stop.
 
 ## Procedure
 
-### 1. Locate (same sources as /advance, read-only)
+### 1. Locate (read-only)
 
-`git status --short` and HEAD short-hash for the header. Load the repo's
-operating rules (`CLAUDE.md`/`AGENTS.md`), roadmap "Now" block or
-equivalent, specs/round docs, LATER/backlog, and the kit/plugin version
-where one is recorded; none recorded → omit that header segment.
-**Keep-sovereign repos:** the adoption ADR's concept mapping names the
-local home of each governed-repo interface function — current-milestone
-pointer, gated spec pipeline, close-out record, amendment log — read
-those, exactly as /advance would; an unnamed function — or a named home
-that is absent on disk — is itself a `⚠` line, not a guess.
+Load the repo's operating rules, roadmap or equivalent (for Non-goals
+and the archive pointer its amendment-log header names), the parking lot
+(LATER/backlog), the decision log(s), and closed specs' close-out
+records. **Keep-sovereign repos:** read through the adoption ADR's
+four-function mapping, plus the mapped parking lot and decision log; an
+unnamed function — or a named home absent on disk — is a `⚠` line, not
+a guess. Any repo: a census source named by its rules but absent on
+disk is the same `⚠` line, never a silently omitted section.
 
-### 2. Classify every milestone and side spec
+### 2. Assemble the backlog census
 
-From records alone:
+**The backlog census** — parked rows, decision-log revisit triggers and
+recorded declines, and open obligations in close-out records — assembled
+fresh from those sources each run:
 
-- `✅` **closed** — close-out record present AND the amendment logged AND
-  the pointer has moved on (all three; /advance's definition).
-- `●` **active** — the current milestone: owner's go recorded and build
-  begun, or the "Now" block's milestone awaiting its named prerequisite.
-  A side spec in recorded build renders ● too — more than one ● is
-  parallel work, not a contradiction.
-- `◐` **built/unclosed** — work recorded complete but a done-when or
-  close-ritual item is explicitly open (e.g. a Result marked pending).
-- `○` **drafted/seeded** — spec or roadmap entry exists, no recorded go.
-
-Open action items come from the records' own gate language (approval
-pending, owner pick named, smoke pending, checklist unexecuted). Tag each:
-
-- `YOU ·` — owner gates, /advance's definitions: approvals, picks,
-  roadmap-named owner conditions, owner-session work in another repo,
-  external/blocker actions.
-- `me ·` — agent work that an already-given or pending approval unblocks.
+- **Parked rows:** every parking-lot row, grouped by its recorded
+  origin, each marked `blocked` (its note names — or its cited ADR
+  records — an unfired trigger) or `eligible` (trigger fired, or none).
+- **Revisit triggers:** every live "Revisit when" clause in the decision
+  log(s), one line each — skip Standing/Never and fired-and-consumed
+  ones.
+- **Spec-embedded obligations:** OPEN/parked/pending items in closed
+  specs' Result and Not-in sections that no other surface carries — each
+  quoted with `file:line` and flagged `⚠ single-homed` (an export
+  candidate for /recut — the close ritual only covers specs still
+  closing).
+- **Declines:** decision-log entries that exist to stop re-litigation,
+  one line each.
 
 ### 3. Render
 
-Fenced code block, then at most a few lines of prose. Shape:
+Fenced block. Header as /route's (repo · version-as-recorded · HEAD ·
+"as recorded — map"). Then sections, each with its count, zero-content
+sections omitted:
 
 ```text
-<repo> ── <kit/plugin version(s) as recorded> ── HEAD <hash> [· dirty: N files]   (as recorded)
-│
-├─ ✅ <closed milestones, one line each, collapsed> ... closed <date> (<record ref>)
-│
-├─ ◐ <built/unclosed item> ................ <what's open>
-│    └─ [ ] YOU · <the exact open action, concretely>
-│
-├─ ○ <drafted item> ....................... awaiting <gate>
-│    └─ [ ] <tag> · <action>
-│
-└─ ● <active milestone> ................... <state>
-     └─ [ ] <tag> · <action>
-            ↳ <what completing it unlocks>
+route: → /route for the queue
 
-     ●=active  ◐=built/unclosed  ○=drafted  ✅=closed  [ ]=open item  ⚠=records disagree
+backlog (N):
+  <origin group> · <row one-liner> · blocked|eligible
+revisit triggers (N):
+  ADR-<n> · <clause one-liner>
+obligations in closed specs (N):        ⚠ single-homed
+  <spec>:<line> · <one-liner>
+non-goals (N):
+  <what> · until <when>
+declines (N):
+  ADR-<n> · <one-liner>
+archive: <pointer the roadmap names, or "none — nothing rotated yet">
 ```
 
-Prose after the tree — exactly three things, one or two lines each:
-1. **Lead insight** — the single most useful compression ("this repo
-   needs only approvals from you", "everything waits on one session in
-   X").
-2. **Recommended order** — pending items sequenced, with a word on why.
-3. **Sequencing note** — which items are order-dependent vs
-   parallelizable, citing any hard ordering rules the specs themselves
-   record (e.g. "nothing ships mid-eval"). If everything is independent,
-   say so in one line.
-
-No prose that restates the tree. No history narration. If the map
-surfaced `⚠` lines, end by naming /advance (to verify and fix forward) as
-the follow-up — never fix in /map.
-
-**Ship flag** — only in a repo whose own records name a delivery step
-(e.g. this kit's dev repo: /ship, ADR-011). After the prose, end with one
-line — `⇪ ship needed — <why, one clause>` — when the delivery payload is
-stale as derivable from the repo's records and git ALONE: payload paths
-(as the delivery step's own docs define them) are dirty, or carry commits
-newer than the last commit that changed the recorded version. Clean, or
-no delivery step recorded → no line at all. The flag is a recorded-state
-inference, not a verification: /ship itself is the check, and delivery
-targets outside the repo root (installed copies, remote marketplaces) are
-never read to confirm.
+Prose after: at most two lines — the single most useful compression
+("N items eligible for the next recut", "the census is clean; nothing
+single-homed"). No sequencing advice (that is /route), no promotion
+recommendations (that is /recut's plan).
 
 ## Refusals
 
-- Running checks, selftest, or gates "just to be sure" → never; that is
-  /advance.
-- Writing anything — including fixing a typo'd status the map revealed →
-  never; report it as a `⚠` line.
-- Mapping or mentioning sibling repos' state → never; one repo per map.
-- Scaffolding a roadmap/spec in an ungoverned repo → never; offer
-  /govern-repo.
-- Verifying "as recorded" claims against reality → never; the header says
-  "as recorded" precisely because the map does not.
+- Sequencing or next-action advice → /route.
+- Exporting, promoting, or writing ANYTHING — including fixing a stale
+  row the census revealed → /recut or /advance's close ritual; render
+  the `⚠` line instead.
+- Restating an ADR trigger from a parking-lot row → never; the decision
+  log is the single source.
+- Mapping sibling repos → never; one repo per map.
+- Scaffolding in an ungoverned repo → never; offer /govern-repo.

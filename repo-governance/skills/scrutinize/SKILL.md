@@ -40,6 +40,9 @@ Load the repo's operating rules, roadmap, decision log(s) — including
 wherever product decisions live if the repo splits them from governance
 ADRs — the parking lot, the most recent Result/close-out sections, and
 any prior scrutiny survey docs (so settled items are not re-surveyed).
+A roadmap archive, where the amendment log names one, is history:
+consult it only to check whether a candidate was already adopted or
+declined — never as the live plan.
 In a keep-sovereign repo, the adoption ADR's concept-mapping or
 divergence doc names the local equivalents of roadmap, parking lot, and
 spec pipeline — that mapping is authoritative; never create kit-named

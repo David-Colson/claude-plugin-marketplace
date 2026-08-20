@@ -163,6 +163,8 @@ absent — re-synced repos get cloud sessions, not just fresh adoptions. Baselin
 regenerated (`--write-baseline` refuses when one exists). Prove with
 `bash scripts/checks/selftest.sh`; record the kit version in the repo's
 decision log; remind that running sessions keep old hooks until restart.
+**Re-runs and re-syncs never redraft the roadmap** — course correction
+is /recut's job; offer it, don't do it.
 
 ## Refusals
 
