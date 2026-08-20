@@ -13,7 +13,7 @@
 <!-- Milestones are demonstrable capabilities, never components.
      "User can X and see Y" — not "finish the API layer".
      Each is sized to one coherent work session.
-     Closed milestones rotate to the roadmap archive at the next /recut,
+     Closed milestones rotate to the roadmap archive at the next /6-reroute,
      leaving a one-line pointer (name · close date · ≤1 outcome clause ·
      spec Result ref) — the spec Result stays the authoritative record. -->
 
@@ -49,6 +49,6 @@ anything.
 
 Versioned by git. A one-line entry here per re-plan, at milestone boundaries
 only: date, what changed, why. Entries may rotate at milestone boundaries
-to `docs/roadmap-archive.md` (verbatim moves by /recut, never edits) —
+to `docs/roadmap-archive.md` (verbatim moves by /6-reroute, never edits) —
 when they do, a pointer line here names the archive; the live log and
 the archive are one append-only stream.

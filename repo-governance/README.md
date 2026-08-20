@@ -11,44 +11,67 @@ is attentive).
 
 ## What's in it
 
-- **`skills/govern-repo`** — one procedure for any repo state (empty,
-  artifacts-only, or legacy codebase): Survey (read-only; dropped notes and
-  docs are evidence, tagged stated-vs-inferred with `file:line`) → Draft &
-  Confirm (every decision arrives drafted with evidence; plan-style approval
-  gate; the human confirms and picks, never authors essays) → Apply
-  (merge-never-clobber, ratchet baselines for legacy code, prove checks fire,
-  governance ADR). No feature code in the governance session, by rule.
-- **`skills/advance`** — the transition ritual, mechanized: verify the
-  current milestone's done-conditions with evidence, run the close ritual
-  when met (Result section, amendment log, "Now" block), then initiate the
-  next milestone's build — stopping AT every owner gate (approach choice,
-  spec approval, milestone pick), never through it. Works on kit-style and
-  case-law repos alike.
-- **`skills/scrutinize`** — the future-proofing question ("industry-standard
-  best practices that would improve this setup?") run with guardrails:
-  every candidate needs a named precedent AND a local evidence tag, output
-  is tiered by the repo's own selection filter (adopt / park / decline-
-  recorded), and the parking lot is the only landing zone — never specs or
-  code. For roadmap authoring, next-milestone choice, and one-way doors.
-- **`skills/route`** — the roadmap as the owner's dependency-ordered
+Skills are numbered by rough usage sequence; `init-` skills are one-time
+setup. (Rename mapping for older records: ADR-016.)
+
+- **`skills/init-cartography`** — one-time: bring any repo under
+  governance (empty, artifacts-only, or legacy): Survey (read-only;
+  dropped artifacts are evidence, tagged stated-vs-inferred) → Draft &
+  Confirm (every decision drafted with evidence; plan-style gate; the
+  human picks, never authors essays) → Apply (merge-never-clobber,
+  ratchet baselines, prove checks fire, governance ADR). Re-runs re-sync
+  standards only — they never redraft the roadmap.
+- **`skills/init-ship`** *(approved, unbuilt — spec 10)* — one-time: set
+  up a repo's delivery skill. Survey how the repo actually ships,
+  confirm the delivery contract, instantiate a repo-local /ship, prove
+  it live.
+- **`skills/1-continue`** — the transition ritual: verify the current
+  milestone's done-conditions with evidence, run the close ritual when
+  met (Result, amendment log, "Now" block; a spec never closes holding
+  OPEN items), then open the next leg — stopping AT every owner gate,
+  never through it. Kit-style and case-law repos alike.
+- **`skills/2-route`** — the roadmap as the owner's dependency-ordered
   action queue, read-only: active milestone, open nodes, every owner
   action in sequence with what it unlocks, open repairs, ship and
-  near-cap flags. Renders recorded state only; contradictions flag,
-  never repair. One repo per route, by rule.
-- **`skills/map`** — the territory beyond the route, read-only: the
+  near-cap flags. Contradictions flag, never repair.
+- **`skills/3-map`** — the territory beyond the route, read-only: the
   backlog census (parking-lot rows, decision-log revisit triggers,
-  obligations recorded in closed specs — single-homed ones flagged),
-  non-goals, recorded declines, archive pointer. The map is free; the
-  route is gated.
-- **`skills/recut`** — the route's only rebuilder, owner-gated: one
+  obligations in closed specs — single-homed ones flagged), non-goals,
+  recorded declines, archive pointer. The map is free; the route is
+  gated.
+- **`skills/4-scrutinize`** — the future-proofing question run with
+  guardrails: every candidate needs a named precedent AND a local
+  evidence tag, tiered by the repo's own bar (adopt / park /
+  decline-recorded); the parking lot is the only landing zone.
+- **`skills/5-scout`** *(future)* — research-based: study prior art that
+  solves this repo's stated problem; borrow-proposals land on the map,
+  never directly on the route.
+- **`skills/6-reroute`** — the route's only rebuilder, owner-gated: one
   plan (backlog → milestones, unstarted-milestone adjustments, verbatim
-  rotation of closed history to the roadmap archive), then apply only
-  on approval. In-flight milestones untouchable; archives append-only.
-- **`templates/`** — the kit itself: `CLAUDE.md` (posture + invariants + working
-  rules), `ROADMAP.md` (capability milestones, non-goals with until-when),
-  `DECISIONS.md`, `LATER.md`, a spec template, three check scripts, and a
-  `.claude/settings.json` config (hooks + cloud-marketplace keys so cloud
-  sessions in governed repos load this plugin).
+  rotation of closed history to the archive), applied only on approval.
+  In-flight milestones untouchable; archives append-only.
+- **`templates/`** — the kit itself: `CLAUDE.md` (posture + invariants +
+  working rules + owner doctrine), `ROADMAP.md`, `DECISIONS.md`,
+  `LATER.md`, spec + handoff + archive templates, four check scripts,
+  and a `.claude/settings.json` config (hooks + cloud-marketplace keys).
+
+## Field glossary — the core information objects
+
+| Object | File | What it holds · when it's used |
+|---|---|---|
+| The charter | `CLAUDE.md` | Posture, code invariants, working rules, owner doctrine. Auto-loaded every session; changed only by owner ruling. |
+| Destinations | `ROADMAP.md` §Goals | What the journey is toward — the measuring sticks. Set at chartering; read by 1-continue, 4-scrutinize, 6-reroute. |
+| The current leg | `ROADMAP.md` §Now | The one milestone in flight + its active itinerary. Read first every session; advanced only by 1-continue's close or a reroute. |
+| Waypoints | `ROADMAP.md` §Milestones | Committed legs; closed ones compress to pointer lines. Entered only via 6-reroute or a 1-continue boundary pick. |
+| No-go zones | `ROADMAP.md` §Non-goals | Out-of-scope as recorded state, each with a "closed until". Checked before scope-adjacent builds. |
+| The captain's log | `ROADMAP.md` §Amendment log | Dated one-liners per course change; last five live, rest rotate. |
+| Old logbooks | `docs/roadmap-archive.md` | Verbatim rotated history, append-only, stamped. Written only by 6-reroute. |
+| Itineraries | `specs/NN-*.md` | One leg's full plan + agent brief. No itinerary, no travel. |
+| Trip reports | spec §Result | What actually happened: verbatim evidence, as-built deltas, friction. Appended at close. |
+| Map margins | `LATER.md` | Ideas parked free with origin + promote-trigger. Anyone writes anytime; consumed by 6-reroute. |
+| The forks log | `DECISIONS.md` | Every fork taken: choice, rejected paths, revisit-when. 3-map renders live triggers from here only. |
+| Guardrails & gear check | `scripts/checks/` + hooks + baseline | Write-blocking fences, pack limits (ratchet: shrink never grow), deps cap, `selftest.sh` proving it all fires. Hooks on every write; gear check at chartering and re-sync. |
+| Dispatches | from `templates/HANDOFF_PROMPT.md` | Self-contained orders for work crossing a session/repo boundary, with the record block the courier brings home. |
 
 The plugin is the shipping container; **the repo files are the product.**
 Invariants must be in context every session, so they live in the target repo's
@@ -101,6 +124,12 @@ repo-config region (survives re-sync) and a kit-code region stamped
 
 ## History
 
+- 0.10.0 — the settled names (spec 14, owner ruling): init-cartography
+  (was govern-repo), 1-continue (was advance), 2-route, 3-map,
+  4-scrutinize, 6-reroute (was recut), with init-ship (was make-ship)
+  and 5-scout (was prior-art) reserved for their builds. Numbers = rough
+  usage sequence; init- = one-time setup. README gains the field
+  glossary. Records keep old names verbatim; ADR-016 holds the mapping.
 - 0.9.0 — the navigation suite (spec 13, owner-approved plan). /map
   becomes /route (the roadmap as the owner's dependency-ordered action
   queue, + near-cap flag); a new broadened /map renders the territory
@@ -214,6 +243,7 @@ repo-config region (survives re-sync) and a kit-code region stamped
 
 ## Version
 
-0.9.0 — govern-repo + advance + scrutinize + route + map + recut, the
-governed-repo interface, owner doctrine, handoff template, hardened
+0.10.0 — init-cartography + 1-continue + 2-route + 3-map +
+4-scrutinize + 6-reroute (init-ship and 5-scout reserved), the
+governed-repo interface, owner doctrine, field glossary, hardened
 checks + T11, cloud-ready adoptions and re-syncs.

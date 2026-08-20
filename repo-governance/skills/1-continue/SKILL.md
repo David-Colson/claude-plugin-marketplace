@@ -1,9 +1,9 @@
 ---
-name: advance
-description: Nudge a governed repo forward through its plan — verify the current milestone's done-conditions with evidence, run the close ritual when they're met, then initiate the next milestone's build (delivering its spec draft for the owner's go first). Use when the user says "advance", "nudge this forward", "what's next", "continue the plan", "next milestone", "push this repo along", or opens a session in a governed repo asking where things stand.
+name: 1-continue
+description: Nudge a governed repo forward through its plan — verify the current milestone's done-conditions with evidence, run the close ritual when they're met, then initiate the next milestone's build (delivering its spec draft for the owner's go first). Use when the user says "continue", "advance", "nudge this forward", "what's next", "continue the plan", "next milestone", "push this repo along", or opens a session in a governed repo asking where things stand.
 ---
 
-# Advance
+# Continue
 
 One procedure to move a governed repo from "where were we?" to "building
 the right next thing" without skipping gates. The failures this prevents
@@ -52,13 +52,13 @@ decision — deliver it, never pull unprompted.
 Load the repo's operating rules (`CLAUDE.md`/`AGENTS.md`), the roadmap
 "Now" block or equivalent, and the active spec/round doc. **If the repo
 has no operating rules, no roadmap or documented equivalent — no plan to
-advance — STOP:** report what's missing and offer /govern-repo (or ask
+advance — STOP:** report what's missing and offer /init-cartography (or ask
 the owner to name equivalents). Never scaffold roadmaps, specs, or any
 governance file from this skill.
 
 Identify the **current** milestone. *Current means in flight*: its spec
 or round doc has the owner's go and build has begun — the same definition
-/scrutinize uses. A milestone merely seeded in the "Now" block, with no
+/4-scrutinize uses. A milestone merely seeded in the "Now" block, with no
 approved spec or no build begun, is not current — it is the *next*
 milestone: step 2 then verifies the most recent milestone that WAS in
 flight (its closure is what needs checking), and step 3 handles the
@@ -89,7 +89,7 @@ repo's gates, read the named artifacts, cite `file:line`. Reach a verdict:
   in its Result or Not-in sections gets a parking-lot row (a pointer,
   never a restatement) or a recorded decline before the ritual's commit.
   A near-cap roadmap (≥85% of the repo's line cap) is reported in the
-  ritual's output — never rotated here; rotation is /recut's. Add the
+  ritual's output — never rotated here; rotation is /6-reroute's. Add the
   amendment-log entry, advance the "Now" block (or the mapped
   equivalents). Commit the ritual writes — and only them; pre-existing
   uncommitted work never rides along — where the repo's conventions
@@ -118,14 +118,14 @@ repo's gates, read the named artifacts, cite `file:line`. Reach a verdict:
 - **No next milestone defined** → propose 1–3 candidates from the
   repo's own goals, recorded friction, and **the backlog census** —
   parked rows, decision-log revisit triggers and recorded declines, and
-  open obligations in close-out records (the same census /map renders) —
+  open obligations in close-out records (the same census /3-map renders) —
   each with its local evidence tag (incident / observed-need / none —
-  /scrutinize's tags) so the promotion bar is auditable, and **STOP for
+  /4-scrutinize's tags) so the promotion bar is auditable, and **STOP for
   the owner's pick.** The pick selects the milestone only; seeding the
   roadmap and authoring its spec then proceed under this step's own
-  gates. This boundary pick is the ONE route-entry path besides /recut
-  (the map is free; the route is gated). You may OFFER /scrutinize or
-  /recut at this boundary; never run either — nor an inline survey —
+  gates. This boundary pick is the ONE route-entry path besides /6-reroute
+  (the map is free; the route is gated). You may OFFER /4-scrutinize or
+  /6-reroute at this boundary; never run either — nor an inline survey —
   without the owner's explicit acceptance.
 
 ### 4. Report
@@ -145,7 +145,7 @@ any. One next action, named concretely.
 - Retrying an owner-only blocker (funding, credentials, external
   accounts) → never; record and deliver it as the gate.
 - Scaffolding governance files in an ungoverned repo → never; that is
-  /govern-repo's job, offered not assumed.
+  /init-cartography's job, offered not assumed.
 - Starting work that sits on the repo's non-goals list → escalate per the
   repo's rules instead of building.
 - Fixing unrelated breakage discovered en route → record it (LATER.md or

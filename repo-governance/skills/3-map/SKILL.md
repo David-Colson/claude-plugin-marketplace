@@ -1,16 +1,16 @@
 ---
-name: map
-description: Render THIS repo's territory — everything beyond the current route: the backlog census (parked rows, decision-log revisit triggers, obligations recorded in closed specs), what's decidedly out of scope (non-goals, recorded declines), and where the archived history lives. Read-only always. Use when the user says "map", "the bigger picture", "what's in the backlog", "what's parked", "what's out of scope". For the current plan in sequence that is /route; to rebuild the route from this territory, /recut.
+name: 3-map
+description: Render THIS repo's territory — everything beyond the current route: the backlog census (parked rows, decision-log revisit triggers, obligations recorded in closed specs), what's decidedly out of scope (non-goals, recorded declines), and where the archived history lives. Read-only always. Use when the user says "map", "the bigger picture", "what's in the backlog", "what's parked", "what's out of scope". For the current plan in sequence that is /2-route; to rebuild the route from this territory, /6-reroute.
 ---
 
 # Map
 
-The territory view. /route shows the road the repo is on; **/map shows
+The territory view. /2-route shows the road the repo is on; **/3-map shows
 everything else** — what's waiting in the backlog, what was deliberately
 ruled out, and where the past is filed. Read-only, records-not-memory.
 Doctrine: **the map is free; the route is gated** — anything can land
 here at any time without ceremony; nothing here enters the route except
-through /recut or an /advance boundary pick.
+through /6-reroute or an /1-continue boundary pick.
 
 ## Hard rules
 
@@ -28,7 +28,7 @@ through /recut or an /advance boundary pick.
   render a `⚠` line quoting both (`file:line`) — never repair.
 - **Ungoverned repo → refuse to invent.** No operating rules and no
   roadmap or documented equivalent: report what's missing, offer
-  /govern-repo, stop.
+  /init-cartography, stop.
 
 ## Procedure
 
@@ -58,19 +58,19 @@ fresh from those sources each run:
 - **Spec-embedded obligations:** OPEN/parked/pending items in closed
   specs' Result and Not-in sections that no other surface carries — each
   quoted with `file:line` and flagged `⚠ single-homed` (an export
-  candidate for /recut — the close ritual only covers specs still
+  candidate for /6-reroute — the close ritual only covers specs still
   closing).
 - **Declines:** decision-log entries that exist to stop re-litigation,
   one line each.
 
 ### 3. Render
 
-Fenced block. Header as /route's (repo · version-as-recorded · HEAD ·
+Fenced block. Header as /2-route's (repo · version-as-recorded · HEAD ·
 "as recorded — map"). Then sections, each with its count, zero-content
 sections omitted:
 
 ```text
-route: → /route for the queue
+route: → /2-route for the queue
 
 backlog (N):
   <origin group> · <row one-liner> · blocked|eligible
@@ -87,16 +87,16 @@ archive: <pointer the roadmap names, or "none — nothing rotated yet">
 
 Prose after: at most two lines — the single most useful compression
 ("N items eligible for the next recut", "the census is clean; nothing
-single-homed"). No sequencing advice (that is /route), no promotion
-recommendations (that is /recut's plan).
+single-homed"). No sequencing advice (that is /2-route), no promotion
+recommendations (that is /6-reroute's plan).
 
 ## Refusals
 
-- Sequencing or next-action advice → /route.
+- Sequencing or next-action advice → /2-route.
 - Exporting, promoting, or writing ANYTHING — including fixing a stale
-  row the census revealed → /recut or /advance's close ritual; render
+  row the census revealed → /6-reroute or /1-continue's close ritual; render
   the `⚠` line instead.
 - Restating an ADR trigger from a parking-lot row → never; the decision
   log is the single source.
 - Mapping sibling repos → never; one repo per map.
-- Scaffolding in an ungoverned repo → never; offer /govern-repo.
+- Scaffolding in an ungoverned repo → never; offer /init-cartography.

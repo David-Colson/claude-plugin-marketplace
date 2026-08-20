@@ -1,9 +1,9 @@
 ---
-name: govern-repo
+name: init-cartography
 description: Set up or retrofit governance on any repository — empty, seeded with dropped notes/artifacts, or a full legacy codebase. Surveys whatever exists (dropped .md files, docs, code, git history), drafts every governance decision from that evidence, walks the user through confirmations plan-style, and only then applies the kit. Use this whenever the user says "seed this repo", "adopt this repo", "set up governance", "govern this repo", "bring this repo under management", "review the files I dropped in and set up the project", "initialize project structure", or starts any repo an agent will build in — even without the word "governance".
 ---
 
-# Govern Repo
+# Init cartography
 
 One procedure for any repo state. Survey what exists, draft every governance
 decision from evidence, confirm plan-style, then apply. **The human confirms
@@ -82,7 +82,7 @@ priori. Governance that gets in the way of development is a defect.
    the **governed-repo interface** — the local home of each of four
    functions: **current-milestone pointer, gated spec pipeline, close-out
    record, amendment log**. Leaving one unnamed is an adoption defect:
-   Phase C may not close with a row missing (tools like /advance stop at
+   Phase C may not close with a row missing (tools like /1-continue stop at
    exactly that hole).
 6. **Roadmap** — "Now" block from actual current state; M1 as a **walking
    skeleton** for new builds, or a capability recut of existing plans (flag
@@ -164,7 +164,7 @@ regenerated (`--write-baseline` refuses when one exists). Prove with
 `bash scripts/checks/selftest.sh`; record the kit version in the repo's
 decision log; remind that running sessions keep old hooks until restart.
 **Re-runs and re-syncs never redraft the roadmap** — course correction
-is /recut's job; offer it, don't do it.
+is /6-reroute's job; offer it, don't do it.
 
 ## Refusals
 

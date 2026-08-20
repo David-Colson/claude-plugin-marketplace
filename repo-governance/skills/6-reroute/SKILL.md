@@ -1,15 +1,15 @@
 ---
-name: recut
-description: Rebuild a governed repo's route — the owner-gated course-correction workflow. Reads design intent and the full backlog census, then proposes ONE recut plan: new milestones organizing backlog items, adjustments to unstarted milestones where intent shifted, and rotation of closed history to the roadmap archive. Writes nothing until the owner approves the plan. Use when the user says "recut", "reorganize the roadmap", "adjust course", "the roadmap is stale", "fold the backlog into the plan", or when /route has flagged the roadmap near its line cap and the owner asks for the rotation. To see state without changing it, /route and /map; to progress the existing plan, /advance.
+name: 6-reroute
+description: Rebuild a governed repo's route — the owner-gated course-correction workflow. Reads design intent and the full backlog census, then proposes ONE recut plan: new milestones organizing backlog items, adjustments to unstarted milestones where intent shifted, and rotation of closed history to the roadmap archive. Writes nothing until the owner approves the plan. Use when the user says "reroute", "recut", "reorganize the roadmap", "adjust course", "the roadmap is stale", "fold the backlog into the plan", or when /2-route has flagged the roadmap near its line cap and the owner asks for the rotation. To see state without changing it, /2-route and /3-map; to progress the existing plan, /1-continue.
 ---
 
-# Recut
+# Reroute
 
 The route's only rebuilder. Doctrine: **the map is free; the route is
 gated** — ideas accumulate on the map without ceremony, and this
-workflow is how they enter the route (the other path: /advance's
-boundary pick). /route and /map look; /advance moves along the existing
-plan; **/recut redraws the plan** — under the owner's gate, never past
+workflow is how they enter the route (the other path: /1-continue's
+boundary pick). /2-route and /3-map look; /1-continue moves along the existing
+plan; **/6-reroute redraws the plan** — under the owner's gate, never past
 it.
 
 ## Hard rules
@@ -17,15 +17,15 @@ it.
 - **One plan, one gate, then apply.** Phases A–B write nothing. The
   approved plan is the ONLY authority for Phase C writes. If approval is
   declined, the plan itself is the deliverable — write nothing
-  (govern-repo doctrine).
+  (init-cartography doctrine).
 - **In-flight milestones are untouchable.** A milestone whose spec has
   the owner's go and build begun is not adjusted, split, or re-scoped
   here — a discovered need to change one is delivered as its own gate,
   not folded into the recut.
 - **Archives are append-only and verbatim.** Rotation MOVES content,
   never edits, summarizes, or deletes it; every rotated block gets a
-  stamp line (`— rotated YYYY-MM-DD from <file> by /recut`). This skill
-  is the SOLE mover; /route and /advance only flag.
+  stamp line (`— rotated YYYY-MM-DD from <file> by /6-reroute`). This skill
+  is the SOLE mover; /2-route and /1-continue only flag.
 - **Nothing on the map is deleted.** A backlog item the recut rejects
   becomes a recorded decline in the decision log — declines stop
   re-litigation; deletion invites it.
@@ -47,7 +47,7 @@ Non-goals, amendment log + any archive its header names);
 **the backlog census** — parked rows, decision-log revisit triggers and
 recorded declines, and open obligations in close-out records; design intent
 (Goals, posture, owner statements recorded in the amendment log); and
-any dated survey/research docs in the docs area (scrutiny, prior-art) —
+any dated survey/research docs in the docs area (scrutiny, scout) —
 their candidates enter the draft WITH their recorded evidence tags;
 nothing enters merely for having been researched.
 
@@ -94,7 +94,7 @@ recommendation.
    what entered the route, what was declined).
 5. Commit the recut writes — and only them — where the repo's
    conventions permit unprompted commits; never push. Then hand off:
-   the next action is /route (see the new sequence) or /advance (start
+   the next action is /2-route (see the new sequence) or /1-continue (start
    the first new milestone through its gates).
 
 ## Refusals
@@ -107,5 +107,5 @@ recommendation.
   never.
 - Creating kit-named files in a keep-sovereign repo → never; propose
   within its structures.
-- Running from another skill's flow or on a schedule → never; /route
-  and /advance may OFFER a recut; only the owner runs one.
+- Running from another skill's flow or on a schedule → never; /2-route
+  and /1-continue may OFFER a recut; only the owner runs one.

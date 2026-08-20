@@ -26,7 +26,7 @@ riskiest assumption: {{RISK}} (addressed by {{SPIKE_OR_NA}}); protected paths:
 
 <!-- Required whenever kept-sovereign files serve kit concepts. All four
      rows must be named — an unnamed function is an adoption defect;
-     tools like /advance stop at exactly that hole. -->
+     tools like /1-continue stop at exactly that hole. -->
 
 | Governed-repo interface function | Local home |
 |---|---|
@@ -36,7 +36,7 @@ riskiest assumption: {{RISK}} (addressed by {{SPIKE_OR_NA}}); protected paths:
 | amendment log | {{LOCAL_HOME}} |
 
 <!-- The amendment-log home may rotate entries at milestone boundaries
-     to a named archive its header points to (verbatim moves by /recut) —
+     to a named archive its header points to (verbatim moves by /6-reroute) —
      the live log and the archive are one append-only stream. -->
 
 ---

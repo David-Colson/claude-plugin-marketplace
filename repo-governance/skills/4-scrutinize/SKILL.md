@@ -1,5 +1,5 @@
 ---
-name: scrutinize
+name: 4-scrutinize
 description: Best-practices and future-proofing review of a governed repo's roadmap or plan — asks "are there industry-standard best practices that would improve this setup, or anything that would better future-proof this plan?", then gates every finding through the repo's own promotion bar so precedent-shopping never becomes scope creep. Deliberately invoked by the owner only — never as an automatic step of another skill. Use when the owner asks while authoring or recutting a roadmap, choosing the next milestone, approaching a one-way door (wire contract, storage schema, release mechanics), after a high-friction milestone, or says "scrutinize", "best practices review", "future-proof this plan", or "review the roadmap against standards".
 ---
 
@@ -25,7 +25,7 @@ same question gated by local evidence has repeatedly improved real plans.
 ## When to run (and when not)
 
 Run when the owner asks, at: roadmap authoring or recutting; choosing the
-next milestone (/advance or /govern-repo may *offer* this — only the
+next milestone (/1-continue or /init-cartography may *offer* this — only the
 owner's acceptance runs it); before a one-way door; after a milestone
 whose Result recorded heavy friction.
 
@@ -56,7 +56,7 @@ plus the owner's explicit go, and say in the survey doc that the default
 was used.
 
 **If the repo has no parking lot, no decision log, or no governance at
-all: STOP.** Report what's missing and offer /govern-repo (or ask the
+all: STOP.** Report what's missing and offer /init-cartography (or ask the
 owner to name equivalents). Never create governance files from this
 skill; never run the survey ungated.
 
