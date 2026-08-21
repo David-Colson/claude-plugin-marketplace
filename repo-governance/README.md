@@ -43,9 +43,13 @@ setup. (Rename mapping for older records: ADR-016.)
   guardrails: every candidate needs a named precedent AND a local
   evidence tag, tiered by the repo's own bar (adopt / park /
   decline-recorded); the parking lot is the only landing zone.
-- **`skills/5-scout`** *(future)* — research-based: study prior art that
-  solves this repo's stated problem; borrow-proposals land on the map,
-  never directly on the route.
+- **`skills/5-scout`** — research and disposition, two entry modes:
+  evaluate a dropped-in artifact whole, or research a named problem
+  against prior art. Every finding carries an evidence tag and a
+  disk-verified cite; the gate tiers by the repo's own bars; every
+  decline and adopt-candidate survives a default-REFUTED challenge
+  before delivery. Findings land on the map, never directly on the
+  route.
 - **`skills/6-reroute`** — the route's only rebuilder, owner-gated: one
   plan (backlog → milestones, unstarted-milestone adjustments, verbatim
   rotation of closed history to the archive), applied only on approval.
@@ -116,17 +120,31 @@ repo-config region (survives re-sync) and a kit-code region stamped
 
 ## Deliberately absent / deferred
 
-- **`disposition-pass`** (post-brainstorm sorting into ADR / invariant /
-  roadmap / non-goal / LATER / discard; milestone-boundary gate; posture-change
-  escalation) — added after the procedure has been run manually once. Building
-  tooling for procedures never yet run manually is the same over-engineering
-  the kit exists to prevent.
+Building tooling for procedures never yet run manually is the
+over-engineering the kit exists to prevent. The list's one long-time
+entry graduated: the `disposition-pass` deferral (ADR-010) held until
+the procedure had run manually — twice (ADR-014, ADR-017) — and
+shipped as `5-scout` in 0.12.0. Currently deferred: `init-ship`
+(spec 10, approved-unbuilt, built on its own pick).
 
 ## History
 
+- 0.12.0 — /5-scout ships (spec 16, M6; owner-approved plan after an
+  evidence pass on the challenge tier). The intake procedure's three
+  manual runs codified as one skill, two entry modes (drop-in
+  disposition / research): five-field handoff records (evidence tag +
+  disk-verified cite per finding), gate by the repo's own bars, and
+  the ruling that made the verification OUTCOME mandatory with the
+  mechanism free — every decline and adopt-candidate survives a
+  default-REFUTED challenge (refuter fan-out where the harness has
+  subagents, inline at reduced depth otherwise; stats recorded per
+  run). Four-part write-set: run doc, decline ADRs, lot rows
+  (awaiting-pick class), one amendment line. Correction folded in:
+  0.11.0's History line said both review docs were refuter-verified —
+  the intake review was; the format scrutiny was gate-verified.
 - 0.11.0 — records hold their shape (spec 15, owner plan-B pick after
-  the intake-pipeline review + artifact-format scrutiny, both
-  refuter-verified). The decision log gets its valve: one-token ADR
+  the intake-pipeline review [refuter-verified] + artifact-format
+  scrutiny [gate-verified]). The decision log gets its valve: one-token ADR
   Status line (live | standing | spent | fired | superseded |
   absorbed), rotation to docs/decisions-archive.md under the ADR-015
   conventions (/6-reroute sole mover), near-cap flag widened to the
@@ -256,8 +274,8 @@ repo-config region (survives re-sync) and a kit-code region stamped
 
 ## Version
 
-0.11.0 — init-cartography + 1-continue + 2-route + 3-map +
-4-scrutinize + 6-reroute (init-ship and 5-scout reserved), the
+0.12.0 — init-cartography + 1-continue + 2-route + 3-map +
+4-scrutinize + 5-scout + 6-reroute (init-ship reserved), the
 governed-repo interface, owner doctrine, field glossary, record-shape
 conventions (ADR Status + rotation, spec State, labeled-field lot,
 grep-contract registry + T12), hardened checks, cloud-ready adoptions
