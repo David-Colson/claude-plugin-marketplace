@@ -1,6 +1,6 @@
 {
   "name": "repo-governance",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "description": "Governance for agent-built repos, any starting state: one init-cartography skill surveys whatever exists (dropped notes, code, history), drafts every governance decision from evidence, confirms plan-style, then applies the kit \u2014 posture, invariants, mechanical enforcement with legacy ratchet baselines, capability-milestone roadmap, spec templates.",
   "author": {
     "name": "David"

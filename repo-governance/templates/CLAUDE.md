@@ -22,13 +22,18 @@
 - No spec, no code. Build only against the active spec in `specs/`.
 - Before any milestone with real design content: propose 2–3 approaches with
   trade-offs and a recommendation. **No code until one is chosen.**
+- The promotion bar judges one item at a time — but when the owner names a
+  capability, the capability is the unit it judges, and the parked items
+  become its cited parts. Promoting only the parts whose triggers fired
+  would ship half a capability.
 - Escalation: if completing the milestone appears to require violating an
   invariant or doing work on the non-goals list, **stop and write a proposal
   instead of code.**
 - Anything encountered mid-build that isn't in the spec goes to `LATER.md`,
   not into code.
 - Definition of done always includes: `scripts/checks/` pass and the full test
-  suite is green.
+  suite is green; at close-out the ratchet's tighten mode runs where a length
+  baseline exists, so ceilings follow shrunk files down.
 - On completion of a milestone, append the Result section to its spec.
 - Plans are dependency-ordered action queues (task-DAG shape), never
   calendar time. Effort is stated in relative size or token/cost units,

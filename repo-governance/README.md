@@ -83,6 +83,40 @@ own `CLAUDE.md` — written by the skill, not shipped as plugin context. Likewis
 the checks are installed repo-local (`scripts/checks/` + `.claude/settings.json`),
 so the repo stays self-governing for anyone who clones it without this plugin.
 
+## The lifecycle — how work moves
+
+**The route holds what is committed; the map holds everything else.**
+Defined milestones and approved specs live on the route (`/2-route`
+renders it). Ideas, parked rows, revisit triggers, declines, and open
+obligations live on the map (`/3-map`). Nothing crosses from map to
+route except through a `/6-reroute` recut or an `/1-continue` boundary
+pick — that gate is what keeps the route meaning "committed" instead
+of "wished for".
+
+**Three things look like bugs; only one is.**
+
+| What surfaced | It is | What happens |
+|---|---|---|
+| A done-when item of the current milestone isn't met | remaining work | keep building; `/1-continue` does it |
+| Something recorded as done or promised isn't true | **a defect** | repair lane: the owner's word, then patch + Result amendment |
+| Work needs a decision the spec doesn't record | a gate | stop and deliver the choice; never build the deviation |
+
+**Everything else discovered mid-build goes to the map** — the parking
+lot — whether the agent found it or the owner asked for it. That rule
+is what stops a milestone from absorbing every good idea that arrives
+while it runs.
+
+**Boundaries are where the map consolidates into the route.** When a
+milestone closes, the close ritual offers a recut before the next one
+opens; the owner accepts or declines in a word. Accepting runs
+`/6-reroute`, which surveys the whole map, proposes one plan, and
+writes nothing until approved.
+
+**Records are append-only and forward-only.** Rotation moves history
+verbatim to an archive; conventions apply to new records, never
+retroactively; a correction is a new entry citing the old one, never
+an edit of it.
+
 ## Install
 
 From a local checkout, add this directory as a marketplace source and install
@@ -128,6 +162,19 @@ shipped as `5-scout` in 0.12.0. Currently deferred: `init-ship`
 (spec 10, approved-unbuilt, built on its own pick).
 
 ## History
+
+- 0.13.0 — the ritual and its conventions hold (spec 17, M7). The close
+  ritual now sweeps consumed non-goal rows, runs the ratchet's tighten
+  mode, compares a context baseline, and records friction; it offers a
+  recut at every milestone boundary. New artifacts: a friction log
+  (cross-session gotchas with recurrence counts) and a context budget,
+  both offered at adoption and installed by Phase C. Record artifacts
+  became seam files (ADR-019) so governance records can grow while the
+  ratchet still trails them. Three record conventions (ADR-020):
+  citation by date + quoted phrase with entry-anchored move-not-copy
+  proofs, capability-as-unit for the promotion bar, one fact per dated
+  log line. README gains the lifecycle section. Review: 33 agents, 15
+  confirmed applied, 15 refuted.
 
 - 0.12.0 — /5-scout ships (spec 16, M6; owner-approved plan after an
   evidence pass on the challenge tier). The intake procedure's three
@@ -274,9 +321,10 @@ shipped as `5-scout` in 0.12.0. Currently deferred: `init-ship`
 
 ## Version
 
-0.12.0 — init-cartography + 1-continue + 2-route + 3-map +
+0.13.0 — init-cartography + 1-continue + 2-route + 3-map +
 4-scrutinize + 5-scout + 6-reroute (init-ship reserved), the
 governed-repo interface, owner doctrine, field glossary, record-shape
 conventions (ADR Status + rotation, spec State, labeled-field lot,
-grep-contract registry + T12), hardened checks, cloud-ready adoptions
-and re-syncs.
+grep-contract registry + T12, seam ceilings, citation and capability
+rules), a friction log and context budget, hardened checks,
+cloud-ready adoptions and re-syncs.

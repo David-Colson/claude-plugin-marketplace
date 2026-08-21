@@ -49,7 +49,12 @@ anything.
 
 Versioned by git. Entry shape: one fact per entry; one entry = one dated
 `- YYYY-MM-DD — ` physical line, never rewrapped (exempt from fill
-width); a multi-fact event becomes several dated entries. Entries may
+width); a multi-fact event becomes several dated entries. A correction
+cites its target by date and quoted phrase, never by position ("the
+entry above" breaks the moment anything is appended or rotated), and
+is appended — the original entry stays verbatim. A rotation's
+move-not-copy proof anchors on the entry opening (`^- YYYY-MM-DD — `),
+since a citation legitimately repeats its target's words. Entries may
 rotate at milestone boundaries to `docs/roadmap-archive.md` (verbatim
 moves by /6-reroute, never edits) — when they do, a pointer line here
 names the archive; the live log and the archive are one append-only

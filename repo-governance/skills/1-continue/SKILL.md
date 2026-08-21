@@ -50,7 +50,9 @@ but syncing (`git pull`, fast-forward or otherwise) is the owner's
 decision — deliver it, never pull unprompted.
 
 Load the repo's operating rules (`CLAUDE.md`/`AGENTS.md`), the roadmap
-"Now" block or equivalent, and the active spec/round doc. **If the repo
+"Now" block or equivalent, the active spec/round doc, and the friction
+log where the repo keeps one — its patterns are what this run should
+avoid re-deriving. **If the repo
 has no operating rules, no roadmap or documented equivalent — no plan to
 advance — STOP:** report what's missing and offer /init-cartography (or ask
 the owner to name equivalents). Never scaffold roadmaps, specs, or any
@@ -93,7 +95,19 @@ repo's gates, read the named artifacts, cite `file:line`. Reach a verdict:
   never a restatement) or a recorded decline before the ritual's commit.
   A near-cap roadmap (≥85% of the repo's line cap) or decision log
   (≥90% — ADR-015 amendment) is reported in the
-  ritual's output — never rotated here; rotation is /6-reroute's. Add the
+  ritual's output — never rotated here; rotation is /6-reroute's.
+  **Sweep what the milestone consumed:** a non-goal row whose subject
+  this milestone shipped is retired from the live table (its history
+  stands in the records that cite it — retiring a row is not deleting
+  a decision), and parking-lot rows the milestone consumed are cleared.
+  Where a length baseline exists, run the ratchet's tighten mode so
+  ceilings follow shrunk files down — a safe no-op without one. Where
+  the repo records a context baseline, count each listed file's
+  NON-BLANK lines (the unit the baseline records) and report regrowth
+  beyond ~10% against it; rewriting that baseline
+  takes the owner's word. Where the repo keeps a friction log,
+  record patterns this run hit for the first time, increment the dates
+  on recurrences, and prune lines whose fix has shipped. Add the
   amendment-log entry, advance the "Now" block (or the mapped
   equivalents). Commit the ritual writes — and only them; pre-existing
   uncommitted work never rides along — where the repo's conventions
@@ -137,6 +151,11 @@ repo's gates, read the named artifacts, cite `file:line`. Reach a verdict:
 Whatever branch ran, end with: what was verified (with its evidence),
 what was closed or built, and the exact gate now awaiting the owner — if
 any. One next action, named concretely.
+
+When a milestone closed this run and the next has not opened, end by
+OFFERING a recut in one line — the boundary is where new map material
+consolidates into the route. The owner accepts or declines in a word;
+never run one unasked.
 
 ## Refusals
 

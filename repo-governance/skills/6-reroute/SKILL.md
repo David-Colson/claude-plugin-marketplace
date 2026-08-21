@@ -93,8 +93,10 @@ recommendation.
    pointer line to the amendment-log header.
 3. Execute map hygiene exactly as approved (rows added/cleared, decline
    entries appended to the decision log).
-4. Append ONE amendment entry recording the recut (date, what rotated,
-   what entered the route, what was declined).
+4. Append the recut's amendment entries in the log's own entry shape —
+   where that shape is one fact per dated line, the recut writes
+   several (what rotated · what entered the route · what was
+   declined), not one entry carrying all three.
 5. Commit the recut writes — and only them — where the repo's
    conventions permit unprompted commits; never push. Then hand off:
    the next action is /2-route (see the new sequence) or /1-continue (start
@@ -111,4 +113,5 @@ recommendation.
 - Creating kit-named files in a keep-sovereign repo → never; propose
   within its structures.
 - Running from another skill's flow or on a schedule → never; /2-route
-  and /1-continue may OFFER a recut; only the owner runs one.
+  and /1-continue may OFFER a recut — /1-continue's report offers one
+  at every milestone boundary — but only the owner runs one.

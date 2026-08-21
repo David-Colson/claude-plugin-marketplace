@@ -97,6 +97,16 @@ priori. Governance that gets in the way of development is a defect.
 9. **Semantic conventions** — declared interpretations found in artifacts
    and code (units, signs, index bases, terms of art) drafted for
    confirmation; ambiguities become questions, never silent guesses.
+10. **Friction log** — drafted default: install `friction-log.md`
+    (from `${CLAUDE_PLUGIN_ROOT}/templates/friction-log.md`) in the
+    repo's docs/notes area, the cross-session store for workflow
+    gotchas the close ritual records, increments, and prunes; the
+    owner may strike it.
+11. **Context baseline** — drafted default: install
+    `scripts/checks/context-baseline.tsv` (from the same templates
+    dir) recording each auto-loaded context file's current NON-BLANK
+    line count, so the close ritual can report regrowth; the owner may
+    strike it.
 
 Present it as a plan for approval, using the LIGHTEST approval facility
 available — when the survey has already produced the plan, in-conversation
@@ -112,6 +122,10 @@ If approval is declined, the plan itself is the deliverable — write nothing.
    `ROADMAP.md`, `DECISIONS.md`, `LATER.md` (seeded from Phase B), `specs/` +
    template. For new builds, author `specs/01-<skeleton-capability>.md` now.
    Execute every reconciliation disposition exactly as approved.
+1b. Where Phase B items 10-11 were accepted, instantiate
+   `friction-log.md` into the approved docs/notes area and
+   `scripts/checks/context-baseline.tsv` with each auto-loaded file's
+   current non-blank count — both from `${CLAUDE_PLUGIN_ROOT}/templates/`.
 2. Install `scripts/checks/` with the approved config (config region above
    the marker; kit code below it verbatim, stamped with the installed plugin
    version); `chmod +x` — and on Windows (`core.filemode=false`) also
