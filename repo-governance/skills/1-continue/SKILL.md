@@ -58,7 +58,10 @@ governance file from this skill.
 
 Identify the **current** milestone. *Current means in flight*: its spec
 or round doc has the owner's go and build has begun — the same definition
-/4-scrutinize uses. A milestone merely seeded in the "Now" block, with no
+/4-scrutinize uses. Where a spec carries a `**State:**` token (draft |
+approved | building | closed — spec 15's shape), read it first;
+gate-language prose is the fallback for specs that predate it. A
+milestone merely seeded in the "Now" block, with no
 approved spec or no build begun, is not current — it is the *next*
 milestone: step 2 then verifies the most recent milestone that WAS in
 flight (its closure is what needs checking), and step 3 handles the
@@ -88,7 +91,8 @@ repo's gates, read the named artifacts, cite `file:line`. Reach a verdict:
   **A spec never closes holding OPEN items:** every obligation left open
   in its Result or Not-in sections gets a parking-lot row (a pointer,
   never a restatement) or a recorded decline before the ritual's commit.
-  A near-cap roadmap (≥85% of the repo's line cap) is reported in the
+  A near-cap roadmap (≥85% of the repo's line cap) or decision log
+  (≥90% — ADR-015 amendment) is reported in the
   ritual's output — never rotated here; rotation is /6-reroute's. Add the
   amendment-log entry, advance the "Now" block (or the mapped
   equivalents). Commit the ritual writes — and only them; pre-existing

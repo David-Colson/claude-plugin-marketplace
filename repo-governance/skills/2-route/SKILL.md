@@ -53,7 +53,9 @@ line, not a guess.
 
 ### 2. Classify every milestone and side spec
 
-From records alone:
+From records alone. Where a spec carries a `**State:**` token (draft |
+approved | building | closed — spec 15's shape), read it first;
+gate-language prose is the fallback for specs that predate it:
 
 - `✅` **closed** — close-out record present AND the amendment logged AND
   the pointer has moved on (all three; /1-continue's definition).
@@ -140,8 +142,10 @@ targets outside the repo root (installed copies, remote marketplaces) are
 never read to confirm.
 
 **Near-cap flag** — when the roadmap file (or its mapped equivalent) is
-at ≥85% of the repo's recorded line cap, end with one line:
-`⚠ roadmap near cap (<n>/<cap> lines) — run /6-reroute to rotate history`.
+at ≥85% of the repo's recorded line cap, or the decision log is at ≥90%
+(chunkier entries, smaller rotation sets — ADR-015 amendment), end with
+one line per affected file:
+`⚠ <file> near cap (<n>/<cap> lines) — run /6-reroute to rotate history`.
 Report only; rotation is /6-reroute's, never this skill's.
 
 End with one pointer line: `backlog and scope: /3-map`.

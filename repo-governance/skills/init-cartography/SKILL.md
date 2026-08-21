@@ -80,8 +80,8 @@ priori. Governance that gets in the way of development is a defect.
    once absorbed, they must not linger as a second source of truth.
    When kept-sovereign files serve kit concepts, the plan must also name
    the **governed-repo interface** — the local home of each of four
-   functions: **current-milestone pointer, gated spec pipeline, close-out
-   record, amendment log**. Leaving one unnamed is an adoption defect:
+   functions: **current-milestone pointer, gated spec pipeline,
+   close-out record, amendment log**. Leaving one unnamed is a defect:
    Phase C may not close with a row missing (tools like /1-continue stop at
    exactly that hole).
 6. **Roadmap** — "Now" block from actual current state; M1 as a **walking

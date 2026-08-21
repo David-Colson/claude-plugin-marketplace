@@ -1,6 +1,6 @@
 ---
 name: 6-reroute
-description: Rebuild a governed repo's route — the owner-gated course-correction workflow. Reads design intent and the full backlog census, then proposes ONE recut plan: new milestones organizing backlog items, adjustments to unstarted milestones where intent shifted, and rotation of closed history to the roadmap archive. Writes nothing until the owner approves the plan. Use when the user says "reroute", "recut", "reorganize the roadmap", "adjust course", "the roadmap is stale", "fold the backlog into the plan", or when /2-route has flagged the roadmap near its line cap and the owner asks for the rotation. To see state without changing it, /2-route and /3-map; to progress the existing plan, /1-continue.
+description: Rebuild a governed repo's route — the owner-gated course-correction workflow. Reads design intent and the full backlog census, then proposes ONE recut plan: new milestones organizing backlog items, adjustments to unstarted milestones where intent shifted, and rotation of closed history to the archives (roadmap history to the roadmap archive; spent/fired/superseded/absorbed ADRs to the decisions archive). Writes nothing until the owner approves the plan. Use when the user says "reroute", "recut", "reorganize the roadmap", "adjust course", "the roadmap is stale", "fold the backlog into the plan", or when /2-route has flagged the roadmap or the decision log near its line cap and the owner asks for the rotation. To see state without changing it, /2-route and /3-map; to progress the existing plan, /1-continue.
 ---
 
 # Reroute
@@ -68,7 +68,10 @@ Assemble ONE plan, every item drafted with its origin and evidence tag:
    keeps its most recent window (default 5 entries) plus any entry that
    is the sole live pointer to a standing candidate or unexported
    obligation; closed milestones compress to one-line pointers (name ·
-   close date · ≤1 outcome clause · close-out record ref).
+   close date · ≤1 outcome clause · close-out record ref). The manifest
+   also lists decision-log rotation: ADRs whose `**Status:**` is spent,
+   fired, superseded, or absorbed move verbatim, stamped, to the
+   decisions archive (ADR-015 amendment; live and standing never move).
 4. **Map hygiene** — parking-lot rows consumed by new milestones;
    single-homed spec obligations exported to rows (pointer, never
    restatement); stale row notes corrected; rejected items → drafted
@@ -82,10 +85,10 @@ recommendation.
 
 ### Phase C — Apply (only after approval)
 
-1. Append rotation blocks to the archive with stamp lines (kit repos:
-   `docs/roadmap-archive.md`, created from
-   `${CLAUDE_PLUGIN_ROOT}/templates/roadmap-archive.md` if absent;
-   sovereign repos: the approved local convention).
+1. Append rotation blocks to the archives with stamp lines (kit repos:
+   `docs/roadmap-archive.md` and `docs/decisions-archive.md`, each
+   created from its `${CLAUDE_PLUGIN_ROOT}/templates/` counterpart if
+   absent; sovereign repos: the approved local convention).
 2. Rewrite the roadmap's forward sections per the plan; add the archive
    pointer line to the amendment-log header.
 3. Execute map hygiene exactly as approved (rows added/cleared, decline

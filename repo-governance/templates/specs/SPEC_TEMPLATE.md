@@ -1,7 +1,14 @@
 # Spec {{NN}} — {{CAPABILITY}}
 
+**State:** draft
+
 <!-- This file is both the plan and the agent brief. It is the only authority
-     for what gets built in this milestone. -->
+     for what gets built in this milestone.
+     State vocabulary: draft | approved | building | closed. Flipped by the
+     actors that already change state: the owner's go → approved (date it),
+     build start → building, the close ritual → closed (date it). Skills
+     read this token first; gate-language prose is the fallback for specs
+     that predate it. -->
 
 ## Mission
 

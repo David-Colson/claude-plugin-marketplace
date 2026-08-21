@@ -36,7 +36,8 @@ through /6-reroute or an /1-continue boundary pick.
 
 Load the repo's operating rules, roadmap or equivalent (for Non-goals
 and the archive pointer its amendment-log header names), the parking lot
-(LATER/backlog), the decision log(s), and closed specs' close-out
+(LATER/backlog), the decision log(s) — including any archive the
+decision log's own header names — and closed specs' close-out
 records. **Keep-sovereign repos:** read through the adoption ADR's
 four-function mapping, plus the mapped parking lot and decision log; an
 unnamed function — or a named home absent on disk — is a `⚠` line, not
@@ -49,9 +50,12 @@ disk is the same `⚠` line, never a silently omitted section.
 recorded declines, and open obligations in close-out records — assembled
 fresh from those sources each run:
 
-- **Parked rows:** every parking-lot row, grouped by its recorded
-  origin, each marked `blocked` (its note names — or its cited ADR
-  records — an unfired trigger) or `eligible` (trigger fired, or none).
+- **Parked rows:** every parking-lot entry — labeled-field block
+  (spec 15's shape: the `Idea:` slug is the citation key) or legacy
+  table row — grouped by its recorded Origin, each marked `blocked`
+  (its Trigger field or note names — or its cited ADR
+  records — an unfired trigger) or `eligible` (trigger fired, or
+  none — adopt-candidates awaiting the owner's pick render eligible).
 - **Revisit triggers:** every live "Revisit when" clause in the decision
   log(s), one line each — skip Standing/Never and fired-and-consumed
   ones.
@@ -82,7 +86,8 @@ non-goals (N):
   <what> · until <when>
 declines (N):
   ADR-<n> · <one-liner>
-archive: <pointer the roadmap names, or "none — nothing rotated yet">
+archives: <the roadmap's and the decision log's pointers, or "none —
+  nothing rotated yet">
 ```
 
 Prose after: at most two lines — the single most useful compression

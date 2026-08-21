@@ -17,8 +17,9 @@ same question gated by local evidence has repeatedly improved real plans.
   wins.
 - **A run that recommends adopting everything it found has failed.**
   Adoption is the exception the evidence must earn.
-- **Only three writes exist:** the dated survey doc, parking-lot rows, and
-  decision-log decline entries. Code, specs, roadmap entries — reading
+- **Only four writes exist:** the dated survey doc, parking-lot park
+  rows, parking-lot adopt-candidate rows (below), and decision-log
+  decline entries. Code, specs, roadmap entries — reading
   them is the job; writing them never is, and *creating new ones counts
   the same as editing*.
 
@@ -40,7 +41,8 @@ Load the repo's operating rules, roadmap, decision log(s) — including
 wherever product decisions live if the repo splits them from governance
 ADRs — the parking lot, the most recent Result/close-out sections, and
 any prior scrutiny survey docs (so settled items are not re-surveyed).
-A roadmap archive, where the amendment log names one, is history:
+A roadmap archive named by the amendment log — and any archive the
+decision log names — is history:
 consult it only to check whether a candidate was already adopted or
 declined — never as the live plan.
 In a keep-sovereign repo, the adoption ADR's concept-mapping or
@@ -110,7 +112,11 @@ Tier every candidate by the repo's own bar, using the evidence tag:
   under its own contract — where the lot requires owner deferral, the
   rows are proposed alongside the survey doc and land on the owner's nod.
 - **Decline entries** in the decision log, brief, with the reason.
-- **Adopt-candidates:** a recommendation for the owner. On their pick,
+- **Adopt-candidates:** a recommendation for the owner — and a
+  parking-lot row tagged as an adopt-candidate awaiting the pick,
+  written on delivery so an unpicked candidate stays census-visible
+  (cleared on the pick or a recorded decline; incident: the 2026-08-20
+  taps run improvised exactly this landing). On their pick,
   the run ends and the item is handed off as an ordinary task in the
   repo's spec pipeline (specs, round docs + owner's go, or equivalent),
   started at a milestone boundary. This skill authors no spec, adds no

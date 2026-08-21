@@ -64,12 +64,12 @@ setup. (Rename mapping for older records: ADR-016.)
 | The current leg | `ROADMAP.md` §Now | The one milestone in flight + its active itinerary. Read first every session; advanced only by 1-continue's close or a reroute. |
 | Waypoints | `ROADMAP.md` §Milestones | Committed legs; closed ones compress to pointer lines. Entered only via 6-reroute or a 1-continue boundary pick. |
 | No-go zones | `ROADMAP.md` §Non-goals | Out-of-scope as recorded state, each with a "closed until". Checked before scope-adjacent builds. |
-| The captain's log | `ROADMAP.md` §Amendment log | Dated one-liners per course change; last five live, rest rotate. |
-| Old logbooks | `docs/roadmap-archive.md` | Verbatim rotated history, append-only, stamped. Written only by 6-reroute. |
+| The captain's log | `ROADMAP.md` §Amendment log | Dated entries, one fact per physical line (a multi-fact event = several entries); last five live, rest rotate. |
+| Old logbooks | `docs/roadmap-archive.md` + `docs/decisions-archive.md` | Verbatim rotated history, append-only, stamped. Written only by 6-reroute (or a build under an approved spec, stamped as such). |
 | Itineraries | `specs/NN-*.md` | One leg's full plan + agent brief. No itinerary, no travel. |
 | Trip reports | spec §Result | What actually happened: verbatim evidence, as-built deltas, friction. Appended at close. |
-| Map margins | `LATER.md` | Ideas parked free with origin + promote-trigger. Anyone writes anytime; consumed by 6-reroute. |
-| The forks log | `DECISIONS.md` | Every fork taken: choice, rejected paths, revisit-when. 3-map renders live triggers from here only. |
+| Map margins | `LATER.md` | Ideas parked free as labeled-field blocks (Idea slug = citation key) with origin + promote-trigger; also holds adopt-candidates awaiting the owner's pick. Anyone writes anytime; consumed by 6-reroute. |
+| The forks log | `DECISIONS.md` | Every fork taken: choice, rejected paths, revisit-when, one-token Status. 3-map renders live triggers from here only; spent/fired/superseded/absorbed ADRs rotate to `docs/decisions-archive.md`. |
 | Guardrails & gear check | `scripts/checks/` + hooks + baseline | Write-blocking fences, pack limits (ratchet: shrink never grow), deps cap, `selftest.sh` proving it all fires. Hooks on every write; gear check at chartering and re-sync. |
 | Dispatches | from `templates/HANDOFF_PROMPT.md` | Self-contained orders for work crossing a session/repo boundary, with the record block the courier brings home. |
 
@@ -124,6 +124,19 @@ repo-config region (survives re-sync) and a kit-code region stamped
 
 ## History
 
+- 0.11.0 — records hold their shape (spec 15, owner plan-B pick after
+  the intake-pipeline review + artifact-format scrutiny, both
+  refuter-verified). The decision log gets its valve: one-token ADR
+  Status line (live | standing | spent | fired | superseded |
+  absorbed), rotation to docs/decisions-archive.md under the ADR-015
+  conventions (/6-reroute sole mover), near-cap flag widened to the
+  decision log at 90%. Grep-contract registry
+  (scripts/checks/grep-contracts.tsv) + selftest T12 make the
+  twice-bitten wrap-split class check-mechanical — T12's first run
+  caught a live split in init-cartography. Spec State line, amendment
+  one-fact-per-entry rule, LATER.md as labeled-field blocks with the
+  adopt-candidate class (/4-scrutinize gains the fourth write). ADR-014
+  D4 repair. Spec 16 (/5-scout) authored for the owner's gate.
 - 0.10.0 — the settled names (spec 14, owner ruling): init-cartography
   (was govern-repo), 1-continue (was advance), 2-route, 3-map,
   4-scrutinize, 6-reroute (was recut), with init-ship (was make-ship)
@@ -243,7 +256,9 @@ repo-config region (survives re-sync) and a kit-code region stamped
 
 ## Version
 
-0.10.0 — init-cartography + 1-continue + 2-route + 3-map +
+0.11.0 — init-cartography + 1-continue + 2-route + 3-map +
 4-scrutinize + 6-reroute (init-ship and 5-scout reserved), the
-governed-repo interface, owner doctrine, field glossary, hardened
-checks + T11, cloud-ready adoptions and re-syncs.
+governed-repo interface, owner doctrine, field glossary, record-shape
+conventions (ADR Status + rotation, spec State, labeled-field lot,
+grep-contract registry + T12), hardened checks, cloud-ready adoptions
+and re-syncs.

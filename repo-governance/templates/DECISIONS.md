@@ -2,12 +2,17 @@
 
 One short ADR per irreversible-ish choice. The rejected options and the
 revisit-trigger are the point — they are what stops re-litigating this in four
-months.
+months. Every ADR carries a `**Status:**` line — live | standing | spent |
+fired | superseded | absorbed — the one sanctioned edit to an otherwise
+verbatim record. ADRs whose Status is spent, fired, superseded, or absorbed
+may rotate verbatim, stamped, to `docs/decisions-archive.md` (/6-reroute is
+the sole mover); live and standing ADRs never rotate.
 
 ---
 
 ## ADR-001 — Seed choices ({{DATE}})
 
+**Status:** live
 **Context:** {{WHY_THIS_REPO_EXISTS_ONE_LINE}}
 
 **Options considered:**
@@ -23,6 +28,8 @@ riskiest assumption: {{RISK}} (addressed by {{SPIKE_OR_NA}}); protected paths:
 ---
 
 ## ADR-00N — Governance adoption mapping (keep-sovereign repos) ({{DATE}})
+
+**Status:** live
 
 <!-- Required whenever kept-sovereign files serve kit concepts. All four
      rows must be named — an unnamed function is an adoption defect;
@@ -43,6 +50,7 @@ riskiest assumption: {{RISK}} (addressed by {{SPIKE_OR_NA}}); protected paths:
 
 ## ADR-NNN — {{TITLE}} ({{DATE}})
 
+**Status:** live
 **Context:**
 
 **Options considered:**

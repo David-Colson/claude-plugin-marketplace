@@ -160,6 +160,29 @@ hits="$(grep -lE "$plh" "$CHECKS"/*.sh .claude/settings.json 2>/dev/null || true
 if [ -n "$hits" ]; then bad "T11 no leftover template placeholders" "$hits"
 else ok "T11 no leftover template placeholders"; fi
 
+# T12: grep-contract registry — every registered canonical string greps
+# in every named home on ONE physical line (the wrap-split failure
+# class, specs 07/13). Skip when the repo ships no registry.
+if [ -f "$CHECKS/grep-contracts.tsv" ]; then
+  m=0; misses=""
+  while IFS=$'\t' read -r s homes || [ -n "$s" ]; do
+    [ -n "$s" ] || continue
+    case "$s" in \#*) continue ;; esac
+    homes="${homes%$'\r'}"   # CRLF checkout must not poison the last home
+    if [ -z "$homes" ]; then   # malformed row (no tab / no homes): fail LOUD
+      m=$((m+1)); misses="${misses}malformed row (no tab/homes): $s
+"; continue; fi
+    old_ifs="$IFS"; IFS=','
+    for h in $homes; do
+      grep -qF -- "$s" "$h" 2>/dev/null || { m=$((m+1)); misses="$misses$h: $s
+"; }
+    done
+    IFS="$old_ifs"
+  done < "$CHECKS/grep-contracts.tsv"
+  if [ "$m" -eq 0 ]; then ok "T12 grep contracts hold"
+  else bad "T12 grep contracts hold ($m missing)" "$misses"; fi
+else skip "T12 grep contracts" "no registry"; fi
+
 echo "----"
 echo "selftest: $PASS passed, $FAIL failed, $SKIP skipped."
 [ "$FAIL" -eq 0 ] && { echo "SELFTEST GREEN"; exit 0; }

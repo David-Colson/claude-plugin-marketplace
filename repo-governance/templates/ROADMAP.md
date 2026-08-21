@@ -47,8 +47,10 @@ anything.
 
 ## Amendment log
 
-Versioned by git. A one-line entry here per re-plan, at milestone boundaries
-only: date, what changed, why. Entries may rotate at milestone boundaries
-to `docs/roadmap-archive.md` (verbatim moves by /6-reroute, never edits) —
-when they do, a pointer line here names the archive; the live log and
-the archive are one append-only stream.
+Versioned by git. Entry shape: one fact per entry; one entry = one dated
+`- YYYY-MM-DD — ` physical line, never rewrapped (exempt from fill
+width); a multi-fact event becomes several dated entries. Entries may
+rotate at milestone boundaries to `docs/roadmap-archive.md` (verbatim
+moves by /6-reroute, never edits) — when they do, a pointer line here
+names the archive; the live log and the archive are one append-only
+stream.
